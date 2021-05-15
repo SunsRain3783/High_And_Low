@@ -2,7 +2,7 @@
 1. git clone 
 1. フォルダを移動
     ```bash
-    cd HighAndLow
+    cd High_And_Low
     ```
 1. ライブラリのインストール
     ```bash

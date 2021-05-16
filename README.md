@@ -11,3 +11,7 @@
     ```bash
     pip install -r requirements.txt
     ```
+### CSSや画像などstaticファイルを変更したとき
+ ```bash
+    python manage.py collectstatic
+    ```

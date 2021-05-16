@@ -1,0 +1,8 @@
+body{
+  background-color: #007700;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #00BB00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #00BB00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #00BB00)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #00BB00));
+  -webkit-background-size:35px 35px;
+}

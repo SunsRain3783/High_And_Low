@@ -33,7 +33,7 @@ body {
   left:50%;
   position:fixed;
   text-align:center;
-  top:40%;
+  top:50%;
   transform:translate(-50%, -50%);
 }
 /*画像１*/
@@ -58,8 +58,8 @@ height: 500px;
 a.cp_btn {
 	display: block;
 	position: relative;
-	top: 50%;
-　  left: 50%;
+	top: 700px;
+　  left: 500px;
 	width: 160px;
 	padding: 0.8em;
 	text-align: center;

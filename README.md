@@ -1,6 +1,6 @@
 ### ローカルでの起動の仕方
 1. git cloneする
-   ```bash
+    ```bash
     git clone https://github.com/SunsRain3783/High_And_Low
     ```
 2. フォルダを移動
@@ -12,6 +12,6 @@
     pip install -r requirements.txt
     ```
 ### CSSや画像などstaticファイルを変更したとき
- ```bash
+    ```bash
     python manage.py collectstatic
     ```

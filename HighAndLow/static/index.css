@@ -58,7 +58,7 @@ height: 500px;
 a.cp_btn {
 	display: block;
 	position: relative;
-	top: 530px;
+	top: 580px;
 　  left: 50%;
 	width: 160px;
 	padding: 0.8em;
@@ -98,7 +98,7 @@ a.cp_btn:active:after {
 a.cp_btn2 {
 	display: block;
 	position: relative;
-	top: 454px;
+	top: 504px;
 　  left: 50%;
 	width: 160px;
 	padding: 0.8em;

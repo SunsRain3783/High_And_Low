@@ -4,12 +4,18 @@
     <head>
         <link rel="stylesheet" href="{% static '1p.css' %}">
     </head>
-    <body><!--ここから中身-->
+    <body onload="firstScript();"><!--ここから中身-->
     <!--ヘッダー-->
     <div class="header">
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
         <a href="#" class="btn-flat-vertical-border2" style="left:85%;">遊び方</a>
     </div>
+    
+    <!--トランプの画像-->
+    <img src="" width="300" class="bigcard" id="bigcard" />
+    <img src="" width="300" class="smallcard" id="smallcard" />
+    
+    
     
     <!--ハイアンドローボタン-->
     <table cellspacing="200px">
@@ -21,3 +27,20 @@
     
     </body>
 </html>
+
+<script>
+//カードの配列
+    const images = ["{% static 'clover1.jpg' %}",
+    "{% static 'clover2.jpg' %}"];
+//ハイアンドローボタンが押されたときのカード表示
+    function changeCard(){
+        
+    }
+
+//初期アクセス時のカード表示
+    function firstScript(){
+        const image0 = Math.floor( Math.random() * images.length);//変数には要素の番号が入る
+        document.getElementById("bigcard").src=images[image0];
+    }
+    
+</script>

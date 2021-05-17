@@ -1,0 +1,47 @@
+/*背景*/
+body{
+  background-color: #00EE00;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #00DD00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #00DD00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #00DD00)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #00DD00));
+  -webkit-background-size:35px 35px;
+}
+
+/*画像*/
+img.img2 {
+width: 100px;
+height: 60px;
+}
+
+/*ヘッダー*/
+.header {
+  margin: 0 auto;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(0,0,0,0.5);
+}
+.block {
+  text-align: right;
+  position: relative;
+  bottom: 50px;
+}
+
+a.btn--blue.btn--cubic {
+  border-bottom: 5px solid #9f000c;
+}
+
+a.btn--blue.btn--cubic:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #9f000c;
+}
+
+a.btn--radius {
+  border-radius: 100vh;
+}
+
+.fa-position-right {
+  position: absolute;
+  top: calc(50% - .5em);
+  right: 1rem;
+}

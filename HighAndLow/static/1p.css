@@ -7,3 +7,110 @@ body{
                     -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #00DD00));
   -webkit-background-size:35px 35px;
 }
+
+/*ヘッダー*/
+.header {
+  margin: 0 auto;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(0,0,0,0.5);
+}
+.block {
+  text-align: right;
+  position: relative;
+  bottom: 40px;
+  right: 20px;
+}
+
+.btn-flat-vertical-border {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-left: solid 4px #FF9933;
+  border-right: solid 4px #FF9933;
+  color: #FF9933;
+  background: #e1f3ff;
+  transition: .4s;
+}
+
+.btn-flat-vertical-border:hover {
+  background: #FF9933;
+  color: #FFF;
+}
+
+.btn-flat-vertical-border2 {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-left: solid 4px #668ad8;
+  border-right: solid 4px #668ad8;
+  color: #668ad8;
+  background: #e1f3ff;
+  transition: .4s;
+}
+
+.btn-flat-vertical-border2:hover {
+  background: #668ad8;
+  color: #FFF;
+}
+
+/*ハイアンドローボタン*/
+.btn{
+    position: relative;
+    left:70%;
+    width:400px;
+    height:140px;
+    line-height:140px;
+}
+.btn{
+    display:block;
+    text-decoration: none;
+    background:#FF722F;
+    text-align:center;
+    color:#FFFFFF;
+    font-size:70px;
+    font-weight:bold;
+    border-radius:30px;
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    box-shadow:5px 5px 8px 0px #6C6C6C ;
+    text-shadow:2px 2px 5px #000000 ;
+}
+.btn:hover{
+    background:#FF685A;
+    color:#FFFFFF;
+    margin-left:5px;
+    margin-top:5px;
+    box-shadow:none;
+}
+
+.btn2{
+    width:400px;
+    height:140px;
+    line-height:140px;
+}
+.btn2{
+    display:block;
+    text-decoration: none;
+    background:#6A84FF;
+    text-align:center;
+    color:#FFFFFF;
+    font-size:70px;
+    font-weight:bold;
+    border-radius:30px;
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    box-shadow:5px 5px 8px 0px #6C6C6C ;
+    text-shadow:2px 2px 5px #000000 ;
+}
+.btn2:hover{
+    background:#5A62FF;
+    color:#FFFFFF;
+    margin-left:5px;
+    margin-top:5px;
+    box-shadow:none;
+}

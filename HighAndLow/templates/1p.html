@@ -12,18 +12,19 @@
     </div>
     
     <!--トランプの画像-->
-    <img src="" width="300" class="bigcard" id="bigcard" />
-    <img src="" width="300" class="smallcard" id="smallcard" />
-    
+    <div style="text-align: center">
+        <img src="" width="270" class="bigcard" id="bigcard" />
+    </div>
+    <div style="text-align: center">
+        <img src="" width="250" class="smallcard" id="smallcard" />
+    </div>
     
     
     <!--ハイアンドローボタン-->
-    <table cellspacing="200px">
-    <tr>
-        <td><a href="#" class="btn">▲ HIGH ▲</a></td>
-        <td><a href="#" class="btn2">▼ LOW ▼</a></td>
-    </tr>
-　　</table>
+    <div class="highbtn">
+        <a href="#" class="btn">▲ HIGH ▲</a>
+        <a href="#" class="btn2">▼ LOW ▼</a>
+    </div>
     
     </body>
 </html>
@@ -36,11 +37,14 @@
     function changeCard(){
         
     }
-
+//裏面表示
+    function changeBack(){
+        document.getElementById("smallcard").src="{% static 'back.jpg' %}";
+    }
 //初期アクセス時のカード表示
     function firstScript(){
         const image0 = Math.floor( Math.random() * images.length);//変数には要素の番号が入る
         document.getElementById("bigcard").src=images[image0];
+        changeBack();
     }
-    
 </script>

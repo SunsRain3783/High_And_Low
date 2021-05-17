@@ -58,10 +58,17 @@ body{
   color: #FFF;
 }
 
+
+
 /*ハイアンドローボタン*/
+.highbtn{
+    margin-top: -170px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn{
-    position: relative;
-    top:380px;
+    margin-left:150px;
     width:400px;
     height:140px;
     line-height:140px;
@@ -83,14 +90,13 @@ body{
 .btn:hover{
     background:#FF685A;
     color:#FFFFFF;
-    margin-left:5px;
+    margin-right:150px;
     margin-top:5px;
     box-shadow:none;
 }
 
 .btn2{
-    position: relative;
-    top:380px;
+    margin-right:150px;
     width:400px;
     height:140px;
     line-height:140px;

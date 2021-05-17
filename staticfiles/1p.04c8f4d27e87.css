@@ -61,7 +61,8 @@ body{
 /*ハイアンドローボタン*/
 .btn{
     position: relative;
-    top:300px;
+    top:500px;
+    left:70%;
     width:400px;
     height:140px;
     line-height:140px;
@@ -90,7 +91,8 @@ body{
 
 .btn2{
     position: relative;
-    top:300px;
+    top:350px;
+    left:3%;
     width:400px;
     height:140px;
     line-height:140px;
@@ -115,7 +117,4 @@ body{
     margin-left:5px;
     margin-top:5px;
     box-shadow:none;
-}
-table{
-margin:auto;
 }

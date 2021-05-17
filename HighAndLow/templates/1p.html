@@ -16,14 +16,13 @@
         <img src="" width="270" class="bigcard" id="bigcard" />
     </div>
     <div style="text-align: center">
-        <img src="" width="250" class="smallcard" id="smallcard" />
+        <img src="" width="260" class="smallcard" id="smallcard" />
     </div>
-    
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn">▲ HIGH ▲</a>
-        <a href="#" class="btn2">▼ LOW ▼</a>
+        <a href="#" class="btn" id="high">▲ HIGH ▲</a>
+        <a href="#" class="btn2" id="low">▼ LOW ▼</a>
     </div>
     
     </body>
@@ -47,4 +46,46 @@
         document.getElementById("bigcard").src=images[image0];
         changeBack();
     }
+//カードをめくるアニメーション
+const buttonElem1 = document.getElementById('high');
+const buttonElem2 = document.getElementById('low');
+let isBack = true;
+
+if(buttonElem1 !== null){
+    buttonElem1.addEventListener('click', () => {
+        const element = document.getElementById('smallcard');
+        if(element !== null){
+            let imagePath = isBack ? "{% static 'clover1.jpg' %}" : "{% static 'back.jpg' %}";
+            rotationAnimationLoop(element, imagePath, 0);
+            isBack = !isBack;
+        }
+    });
+}
+if(buttonElem2 !== null){
+    buttonElem2.addEventListener('click', () => {
+        const element = document.getElementById('smallcard');
+        if(element !== null){
+            let imagePath = isBack ? "{% static 'clover1.jpg' %}" : "{% static 'back.jpg' %}";
+            rotationAnimationLoop(element, imagePath, 0);
+            isBack = !isBack;
+        }
+    });
+}
+const rotationAnimationLoop = (element, imagePath, deg) =>{
+    if( deg <= 180 ){
+        rotationAnimation(element, imagePath, deg);
+        setTimeout( 
+            () => {
+                rotationAnimationLoop(element, imagePath, deg+= 5 ) 
+            }, 
+        1 );
+    }
+}
+const rotationAnimation = (element, imagePath, deg) =>{
+    if ( 90 === deg ){
+        element.src =  imagePath;
+    }else {
+        element.style.webkitTransform = 'rotateY(' + deg + 'deg)';
+    }
+}
 </script>

@@ -30,8 +30,24 @@
 
 <script>
 //カードの配列
-    const images = ["{% static 'clover1.jpg' %}",
-    "{% static 'clover2.jpg' %}"];
+    const images = ["{% static 'clover1.jpg' %}","{% static 'clover2.jpg' %}","{% static 'clover3.jpg' %}"
+    ,"{% static 'clover4.jpg' %}","{% static 'clover5.jpg' %}","{% static 'clover6.jpg' %}","{% static 'clover7.jpg' %}"
+    ,"{% static 'clover8.jpg' %}","{% static 'clover9.jpg' %}","{% static 'clover10.jpg' %}","{% static 'clover11.jpg' %}"
+    ,"{% static 'clover11.jpg' %}","{% static 'clover12.jpg' %}","{% static 'clover13.jpg' %}","{% static 'spade1.jpg' %}"
+    ,"{% static 'spade2.jpg' %}","{% static 'spade3.jpg' %}","{% static 'spade4.jpg' %}","{% static 'spade5.jpg' %}"
+    ,"{% static 'spade6.jpg' %}","{% static 'spade7.jpg' %}","{% static 'spade8.jpg' %}","{% static 'spade9.jpg' %}"
+    ,"{% static 'spade10.jpg' %}","{% static 'spade11.jpg' %}","{% static 'spade12.jpg' %}","{% static 'spade13.jpg' %}"
+    ,"{% static 'heart1.jpg' %}","{% static 'heart2.jpg' %}","{% static 'heart3.jpg' %}","{% static 'heart4.jpg' %}"
+    ,"{% static 'heart5.jpg' %}","{% static 'heart6.jpg' %}","{% static 'heart7.jpg' %}","{% static 'heart8.jpg' %}"
+    ,"{% static 'heart9.jpg' %}","{% static 'heart10.jpg' %}","{% static 'heart11.jpg' %}","{% static 'heart12.jpg' %}"
+    ,"{% static 'heart13.jpg' %}","{% static 'dia1.jpg' %}","{% static 'dia2.jpg' %}","{% static 'dia3.jpg' %}"
+    ,"{% static 'dia4.jpg' %}","{% static 'dia5.jpg' %}","{% static 'dia6.jpg' %}","{% static 'dia7.jpg' %}"
+    ,"{% static 'dia8.jpg' %}","{% static 'dia9.jpg' %}","{% static 'dia10.jpg' %}","{% static 'dia11.jpg' %}"
+    ,"{% static 'dia12.jpg' %}","{% static 'dia13.jpg' %}"];
+//function外で初期親カードと子カードを指定
+    const oyacard0 = Math.floor( Math.random() * images.length);//初期の親カード
+    const lowcard0 = Math.floor( Math.random() * images.length);//初期の子カード
+    
 //ハイアンドローボタンが押されたときのカード表示
     function changeCard(){
         
@@ -42,8 +58,7 @@
     }
 //初期アクセス時のカード表示
     function firstScript(){
-        const image0 = Math.floor( Math.random() * images.length);//変数には要素の番号が入る
-        document.getElementById("bigcard").src=images[image0];
+        document.getElementById("bigcard").src=images[oyacard0];//親のカード
         changeBack();
     }
 //カードをめくるアニメーション
@@ -55,7 +70,7 @@ if(buttonElem1 !== null){
     buttonElem1.addEventListener('click', () => {
         const element = document.getElementById('smallcard');
         if(element !== null){
-            let imagePath = isBack ? "{% static 'clover1.jpg' %}" : "{% static 'back.jpg' %}";
+            let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
             rotationAnimationLoop(element, imagePath, 0);
             isBack = !isBack;
         }
@@ -65,13 +80,14 @@ if(buttonElem2 !== null){
     buttonElem2.addEventListener('click', () => {
         const element = document.getElementById('smallcard');
         if(element !== null){
-            let imagePath = isBack ? "{% static 'clover1.jpg' %}" : "{% static 'back.jpg' %}";
+            let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
             rotationAnimationLoop(element, imagePath, 0);
             isBack = !isBack;
         }
     });
 }
 const rotationAnimationLoop = (element, imagePath, deg) =>{
+    element.style.webkitTransform = 'rotateY(360deg)';
     if( deg <= 180 ){
         rotationAnimation(element, imagePath, deg);
         setTimeout( 
@@ -82,10 +98,11 @@ const rotationAnimationLoop = (element, imagePath, deg) =>{
     }
 }
 const rotationAnimation = (element, imagePath, deg) =>{
-    if ( 90 === deg ){
-        element.src =  imagePath;
-    }else {
-        element.style.webkitTransform = 'rotateY(' + deg + 'deg)';
+    if ( 180 === deg ){
+        element.src =  imagePath;//画像の切り替え
+    }
+    else {
+        element.style.webkitTransform = 'rotateY(' + deg + 'deg)';//回転アニメーション
     }
 }
 </script>

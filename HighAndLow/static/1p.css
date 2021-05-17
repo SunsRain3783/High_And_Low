@@ -59,7 +59,6 @@ body{
 }
 
 
-
 /*ハイアンドローボタン*/
 .highbtn{
     margin-top: -170px;
@@ -121,7 +120,3 @@ body{
     margin-left:5px;
     margin-top:5px;
     box-shadow:none;
-}
-table{
-margin:auto;
-}

@@ -331,9 +331,10 @@ z-index:15000;
 }
 
 /* ベットボタン */
+.betbtn{  
+z-index:15000;
+}
 .btn-flat-bottom-border {
-  -webkit-appearance: none;
-  z-index:15000;
   position: relative;
   display: inline-block;
   font-weight: bold;

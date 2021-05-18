@@ -321,26 +321,33 @@ opacity:0.6;
 position:relative;
 }
 
-/* ボタン */
-.bt{
+/* ベット画像 */
+.betcoin{
 position: relative;
+margin-left:140px;
+margin-top:-1000px;
 -webkit-appearance: none;
 z-index:15000;
-border:1px solid #0044ff;
-border-radius:10px;
-background-color:#0044ff;
-color:#ffffff;
-padding:8px;
-cursor:pointer;
 }
 
-/* 説明用テキスト */
-#setsumeitext{  
-position:absolute;
-z-index:15000;
-width:200px;
-padding:10px;
-border-radius:10px;
-background-color: #ffffff;color:#222222;
-font-weight:bold;
+/* ベットボタン */
+.btn-flat-bottom-border {
+  -webkit-appearance: none;
+  z-index:15000;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 7px 10px 10px 10px;
+  text-decoration: none;
+  color: #FFF;
+  background: #a180dc;
+  transition: .4s;
+}
+
+.btn-flat-bottom-border > span {
+  border-bottom: solid 2px #FFF;
+}
+
+.btn-flat-bottom-border:hover {
+  background: #91b5fb;
 }

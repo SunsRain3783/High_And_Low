@@ -36,12 +36,12 @@
         <font size="10"><a href="/" class="btn-circle-border-double2" id="top" >やめる</a></font>
     </div>
     
-    <!-- 目立たせたい要素 -->
+    <!--ベットボタン-->
     <div class="pickupblock">
-        <input type="button" class="bt" value="対象のボタン">
-        <div id="setsumeitext">
-        ↑まずはこのボタンの役割を覚えましょう！
-        </div>
+        <img src="{% static 'betcoin.jpg' %}" width="1200" class="betcoin" id="betcoin" />
+        <a href="#" class="btn-flat-bottom-border" id="betbtn" >
+            <span>OK</span>
+        </a>
     </div>
 
     <!-- モーダル部分 -->
@@ -112,6 +112,7 @@
         document.getElementById("bigcard").src=suit[oyacard];//親カードの書き換え
         ko();//子カードを設定(書き換えはめくるアニメーションで行う)
         changeBack();//子カードを裏面に
+        changeDisplay1();//ハイアンドローボタンの非表示
         changeDisplay2();//続けるやめるボタンの非表示
         changeDisplay3();//ベットやめるボタンの非表示
         modal_original('on');
@@ -233,6 +234,22 @@
         setTimeout("changeDisplay3();",650);
       }
     }
+//ベットボタンの処理
+    const buttonElem7 = document.getElementById('betcoin');
+    const buttonElem8 = document.getElementById('betbtn');
+    if(buttonElem8 !== null){//ベットボタンを押したときの処理
+        buttonElem8.addEventListener('click', () => {
+            if(buttonElem7.style.visibility == "hidden"){
+                buttonElem7.style.visibility = "visible";
+                buttonElem8.style.visibility = "visible";
+            }else{
+                buttonElem7.style.visibility = "hidden";
+                buttonElem8.style.visibility = "hidden";
+            }
+            changeDisplay1();
+            modal_original("");
+        });
+    }
 //表示非表示
     function changeDisplay1(){//ハイアンドローボタン
       var high = document.getElementById("high");
@@ -291,15 +308,14 @@ function modal_original(modalswitch){
     const setting_modalid = 'modaloverlay_id';
     //モーダルのIDを指定
 
-    const setting_stext = 'setsumeitext'
-    //説明テキスト要素のIDを指定
-
     var smodalobj = document.getElementById(setting_modalid);
 
     //引数がonの場合は表示する
     if(modalswitch=='on'){
-    document.getElementById(setting_stext).style.display = 'block';
-    document.getElementById(setting_modalid).style.display = 'block';
+        document.getElementById(setting_modalid).style.display = 'block';
+    }
+    else{
+        document.getElementById(setting_modalid).style.display = 'none';
     }
 
     //イベントを定義
@@ -307,7 +323,6 @@ function modal_original(modalswitch){
 
 //モーダルをクリックしたら起動し、不要な要素を非表示に
     function overlayclick(){
-        document.getElementById(setting_stext).style.display = 'none';
         document.getElementById(setting_modalid).style.display = 'none';
     }
 

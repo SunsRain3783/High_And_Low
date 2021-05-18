@@ -334,17 +334,22 @@ z-index:15000;
 .btn-icon {
   -webkit-appearance: none;
   z-index:15000;
-  margin-top:-160px;
-  margin-left:646px;
+  margin-top:-170px;
+  margin-left:300px;
   display: block;
   max-width: 180px;
   text-align: center;
-  background-color: #FF0033;
+  background-color: #9ec34b;
   font-size: 50px;
   color: #FFF;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 16px 8px 16px;
+  padding: 8px 16px 8px 32px;
   border-radius: 4px;
   position: relative;
+}
+
+.btn-icon:hover {
+  opacity: 1;
+  color: #fff;
 }

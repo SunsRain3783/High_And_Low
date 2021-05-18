@@ -331,23 +331,20 @@ z-index:15000;
 }
 
 /* ベットボタン */
-.btn-flat-bottom-border {
+.btn-icon {
   -webkit-appearance: none;
   z-index:15000;
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 7px 10px 10px 10px;
-  text-decoration: none;
+  margin-top:-160px;
+  margin-left:646px;
+  display: block;
+  max-width: 180px;
+  text-align: center;
+  background-color: #FF0033;
+  font-size: 50px;
   color: #FFF;
-  background: #a180dc;
-  transition: .4s;
-}
-
-.btn-flat-bottom-border > span {
-  border-bottom: solid 2px #FFF;
-}
-
-.btn-flat-bottom-border:hover {
-  background: #91b5fb;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px 8px 16px;
+  border-radius: 4px;
+  position: relative;
 }

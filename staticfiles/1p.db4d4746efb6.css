@@ -331,20 +331,20 @@ z-index:15000;
 }
 
 /* ベットボタン */
-.btn-icon {
+.btn-denim {
   -webkit-appearance: none;
   z-index:15000;
-  margin-top:-160px;
-  margin-left:646px;
   display: block;
   max-width: 180px;
   text-align: center;
-  background-color: #FF0033;
+  background-color: #293b6a;
   font-size: 50px;
   color: #FFF;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 16px 8px 16px;
-  border-radius: 4px;
-  position: relative;
+  padding: 8px 16px;
+}
+
+.btn-denim:hover {
+  border-style: solid;
 }

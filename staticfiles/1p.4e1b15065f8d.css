@@ -213,91 +213,50 @@ a.bt-cont:hover:after{
 }
 
 /*ベットするトップページボタン*/
-.bettop{
-    margin-top: -200px;
+.highbtn{
+    margin-top: -170px;
     display: flex;
     justify-content: space-between;
 }
-a.btn-circle-border-double{
+
+.btn-circle-border-double {
   margin-left:280px;
-  display: block;
-  position: relative;
+  display: inline-block;
   text-decoration: none;
-  height:200px;
-  width: 200px;
-  line-height: 200px;
-  background-color:#F8F8FF;
+  color: #668ad8;
+  background-color:#FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: double 4px #668ad8;
   text-align: center;
-  color: #0475fb;
-  border: solid 1px #0475fb;
-  border-radius: 50%;
   overflow: hidden;
-  z-index: 1;
-}
-a.btn-circle-border-double:after{
-  content:"";
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  background : #0475fb;
-  opacity: 0;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -ms-transition: 0.3s;
-  transition: 0.3s;
-  z-index: -1;
-}
-a.btn-circle-border-double:hover{
-  color: #fff;
-}
-a.btn-circle-border-double:hover:after{
-  top: 0;
-  left: 0;
-  height:200px;
-  width: 200px;
-  border-radius: 50%;
-  opacity: 1;
+  transition: .6s;
 }
 
-a.btn-circle-border-double2{
+.btn-circle-border-double:hover {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+
+.btn-circle-border-double2 {
   margin-right:280px;
-  display: block;
-  position: relative;
+  display: inline-block;
   text-decoration: none;
-  height:200px;
-  width: 200px;
-  line-height: 200px;
-  background-color:#F8F8FF;
+  color: #668ad8;
+  background-color:#FFF;
+  width: 120px;
+  height: 120px;
+  line-height: 120px;
+  border-radius: 50%;
+  border: double 4px #668ad8;
   text-align: center;
-  color: #FF6347;
-  border: solid 1px #FF6347;
-  border-radius: 50%;
   overflow: hidden;
-  z-index: 1;
+  transition: .6s;
 }
-a.btn-circle-border-double2:after{
-  content:"";
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  background : #FF6347;
-  opacity: 0;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -o-transition: 0.3s;
-  -ms-transition: 0.3s;
-  transition: 0.3s;
-  z-index: -1;
-}
-a.btn-circle-border-double2:hover{
-  color: #fff;
-}
-a.btn-circle-border-double2:hover:after{
-  top: 0;
-  left: 0;
-  height:200px;
-  width: 200px;
-  border-radius: 50%;
-  opacity: 1;
+
+.btn-circle-border-double2:hover {
+  -webkit-transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }

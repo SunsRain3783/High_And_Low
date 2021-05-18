@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" href="{% static '1p.css' %}">
     </head>
-    <body onload="firstScript();"><!--ここから中身-->
+    <body onload="changeNext();"><!--ここから中身-->
     <!--ヘッダー-->
     <div class="header">
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
@@ -21,7 +21,7 @@
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high" onclick="changeDisplay1();" >▲ HIGH ▲</a>
+        <a href="#" class="btn" id="high" onclick="changeDisplay0();" >▲ HIGH ▲</a>
         <a href="#" class="btn2" id="low" onclick="changeDisplay1();" >▼ LOW ▼</a>
     </div>
     
@@ -30,49 +30,75 @@
         <font size="20"><a href="#" class="bt-stop" id="stop" onclick="changeDisplay2();" >続ける</a></font>
         <font size="20"><a href="#" class="bt-cont" id="cont" onclick="changeDisplay2();" >やめる</a></font>
     </div>
+    <!--ベットやめるボタン-->
+    <div class="bettop">
+        <font size="10"><a href="#" class="btn-circle-border-double">ベット</a></font>
+        <font size="10"><a href="#" class="btn-circle-border-double2">やめる</a></font>
+    </div>
     
     </body>
 </html>
 
 <script>
-//カードの配列
-    const images = ["{% static 'clover1.jpg' %}","{% static 'clover2.jpg' %}","{% static 'clover3.jpg' %}"
+//カードの配列(あえて１を最後にしている)
+    var clover = ["{% static 'clover2.jpg' %}","{% static 'clover3.jpg' %}"
     ,"{% static 'clover4.jpg' %}","{% static 'clover5.jpg' %}","{% static 'clover6.jpg' %}","{% static 'clover7.jpg' %}"
     ,"{% static 'clover8.jpg' %}","{% static 'clover9.jpg' %}","{% static 'clover10.jpg' %}","{% static 'clover11.jpg' %}"
-    ,"{% static 'clover11.jpg' %}","{% static 'clover12.jpg' %}","{% static 'clover13.jpg' %}","{% static 'spade1.jpg' %}"
-    ,"{% static 'spade2.jpg' %}","{% static 'spade3.jpg' %}","{% static 'spade4.jpg' %}","{% static 'spade5.jpg' %}"
-    ,"{% static 'spade6.jpg' %}","{% static 'spade7.jpg' %}","{% static 'spade8.jpg' %}","{% static 'spade9.jpg' %}"
-    ,"{% static 'spade10.jpg' %}","{% static 'spade11.jpg' %}","{% static 'spade12.jpg' %}","{% static 'spade13.jpg' %}"
-    ,"{% static 'heart1.jpg' %}","{% static 'heart2.jpg' %}","{% static 'heart3.jpg' %}","{% static 'heart4.jpg' %}"
+    ,"{% static 'clover12.jpg' %}","{% static 'clover13.jpg' %}","{% static 'clover1.jpg' %}"];
+    var spade = ["{% static 'spade2.jpg' %}","{% static 'spade3.jpg' %}","{% static 'spade4.jpg' %}"
+    ,"{% static 'spade5.jpg' %}","{% static 'spade6.jpg' %}","{% static 'spade7.jpg' %}","{% static 'spade8.jpg' %}"
+    ,"{% static 'spade9.jpg' %}","{% static 'spade10.jpg' %}","{% static 'spade11.jpg' %}","{% static 'spade12.jpg' %}"
+    ,"{% static 'spade13.jpg' %}","{% static 'spade1.jpg' %}"];
+    var heart = ["{% static 'heart2.jpg' %}","{% static 'heart3.jpg' %}","{% static 'heart4.jpg' %}"
     ,"{% static 'heart5.jpg' %}","{% static 'heart6.jpg' %}","{% static 'heart7.jpg' %}","{% static 'heart8.jpg' %}"
     ,"{% static 'heart9.jpg' %}","{% static 'heart10.jpg' %}","{% static 'heart11.jpg' %}","{% static 'heart12.jpg' %}"
-    ,"{% static 'heart13.jpg' %}","{% static 'dia1.jpg' %}","{% static 'dia2.jpg' %}","{% static 'dia3.jpg' %}"
+    ,"{% static 'heart13.jpg' %}","{% static 'heart1.jpg' %}"];
+    var dia = ["{% static 'dia2.jpg' %}","{% static 'dia3.jpg' %}"
     ,"{% static 'dia4.jpg' %}","{% static 'dia5.jpg' %}","{% static 'dia6.jpg' %}","{% static 'dia7.jpg' %}"
     ,"{% static 'dia8.jpg' %}","{% static 'dia9.jpg' %}","{% static 'dia10.jpg' %}","{% static 'dia11.jpg' %}"
-    ,"{% static 'dia12.jpg' %}","{% static 'dia13.jpg' %}"];
+    ,"{% static 'dia12.jpg' %}","{% static 'dia13.jpg' %}","{% static 'dia1.jpg' %}"];
 //関数の外に親カードと子カード用の変数を作成
-var oyacard;
-var kocard;
-//親カードを設定する関数
+    var oyacard;
+    var kocard;
+    var suit;
+//スートを設定する関数
+    function changeSuit(){
+        switch(Math.floor( Math.random() * 4)){
+            case 0:
+                suit = clover;//配列は参照渡し(suitで変更したらcloverも変更)
+                break;
+            case 1:
+                suit = spade;
+                break;
+            case 2:
+                suit = heart;
+                break;
+            case 3:
+                suit = dia;
+                break;
+        }
+    }
+//親カードを設定する関数(スートを設定したあとに呼び出す)
     function oya(){
-        oyacard = Math.floor( Math.random() * images.length);
+        oyacard = Math.floor( Math.random() * suit.length);
     }
 //子カードを設定する関数(親カードを設定したあとに呼び出す)
     function ko(){
-        kocard = Math.floor( Math.random() * images.length);
+        kocard = Math.floor( Math.random() * suit.length);
         while(kocard === oyacard){//親カードとダブったら選びなおす
-            kocard = Math.floor( Math.random() * images.length);
+            kocard = Math.floor( Math.random() * suit.length);
         }
     }
 //裏面表示
     function changeBack(){
         document.getElementById("smallcard").src="{% static 'back.jpg' %}";
     }
-//初期アクセス時の処理
-    function firstScript(){
+//カードのチェンジ
+    function changeNext(){
+        changeSuit();//スートを設定
         oya();//親カードを設定
-        document.getElementById("bigcard").src=images[oyacard];
-        ko();//子カードを設定
+        document.getElementById("bigcard").src=suit[oyacard];//親カードの書き換え
+        ko();//子カードを設定(書き換えはめくるアニメーションで行う)
         changeBack();//子カードを裏面に
         changeDisplay2();//続けるやめるボタンの非表示
     }
@@ -85,7 +111,7 @@ var kocard;
         buttonElem1.addEventListener('click', () => {
             const element = document.getElementById('smallcard');
             if(element !== null){
-                let imagePath = isBack ? images[kocard] : "{% static 'back.jpg' %}";
+                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
                 rotationAnimationLoop(element, imagePath, 0);
                 isBack = !isBack;
             }
@@ -95,7 +121,7 @@ var kocard;
         buttonElem2.addEventListener('click', () => {
             const element = document.getElementById('smallcard');
             if(element !== null){
-                let imagePath = isBack ? images[kocard] : "{% static 'back.jpg' %}";
+                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
                 rotationAnimationLoop(element, imagePath, 0);
                 isBack = !isBack;
             }
@@ -120,8 +146,29 @@ var kocard;
             element.style.webkitTransform = 'rotateY(' + deg + 'deg)';//回転アニメーション
         }
     }
-//ボタンの表示非表示
-    function changeDisplay1(){//ハイアンドローボタン
+//続けるやめるボタンの処理
+    const buttonElem3 = document.getElementById('stop');
+    const buttonElem4 = document.getElementById('cont');
+    if(buttonElem3 !== null){//続けるボタンを押したときの処理
+        buttonElem3.addEventListener('click', () => {
+            contFunc();
+        });
+    }
+    if(buttonElem4 !== null){//やめるボタンを押したときの処理
+        buttonElem4.addEventListener('click', () => {
+            stopFunc();
+        });
+    }
+//ポイントが増えたり、カードが減ったりの処理
+    function contFunc(){
+        
+    }
+//ポイントの獲得
+    function stopFunc(){
+        
+    }
+//表示非表示
+    function changeDisplay0(){//ハイ
       var high = document.getElementById("high");
       var low = document.getElementById("low");
       if(high.style.visibility == "hidden"){
@@ -131,10 +178,27 @@ var kocard;
         high.style.visibility = "hidden";
         low.style.visibility = "hidden";
       }
-      if(judg() === "success"){
+      if(judg0() === "success"){
           setTimeout("changeDisplay2();",650);
       }
-      else{
+      else if(judg0() === "failure"){
+          setTimeout("changeDisplay3();",650);
+      }
+    }
+    function changeDisplay1(){//ロー
+      var high = document.getElementById("high");
+      var low = document.getElementById("low");
+      if(high.style.visibility == "hidden"){
+        high.style.visibility = "visible";
+        low.style.visibility = "visible";
+      }else{
+        high.style.visibility = "hidden";
+        low.style.visibility = "hidden";
+      }
+      if(judg1() === "success"){
+          setTimeout("changeDisplay2();",650);
+      }
+      else if(judg1() === "failure"){
           setTimeout("changeDisplay3();",650);
       }
     }
@@ -149,11 +213,25 @@ var kocard;
         cont.style.display = "none";
       }
     }
-    function changeDisplay3(){//ベット画面
+    function changeDisplay3(){//ベットボタン
         
     }
 //成功失敗の判定
-    function judg(){
-        
+    function judg0(){
+        if(kocard >= oyacard){
+            return "success";
+        }
+        else if(kocard < oyacard){
+            return "failure";
+        }
     }
+    function judg1(){
+        if(kocard <= oyacard){
+            return "success";
+        }
+        else if(kocard > oyacard){
+            return "failure";
+        }
+    }
+    
 </script>

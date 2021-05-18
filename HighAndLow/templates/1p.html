@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" href="{% static '1p.css' %}">
     </head>
-    <body onload="changeNext();"><!--ここから中身-->
+    <body onload="firstFunc();"><!--ここから中身-->
     <!--ヘッダー-->
     <div class="header">
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
@@ -21,7 +21,7 @@
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high" onclick="changeDisplay0();" >▲ HIGH ▲</a>
+        <a href="#" class="btn" id="high" onclick="changeDisplay1();" >▲ HIGH ▲</a>
         <a href="#" class="btn2" id="low" onclick="changeDisplay1();" >▼ LOW ▼</a>
     </div>
     
@@ -32,8 +32,8 @@
     </div>
     <!--ベットやめるボタン-->
     <div class="bettop">
-        <font size="10"><a href="#" class="btn-circle-border-double">ベット</a></font>
-        <font size="10"><a href="#" class="btn-circle-border-double2">やめる</a></font>
+        <font size="10"><a href="#" class="btn-circle-border-double" id="bet" onclick="changeDisplay3();" >ベット</a></font>
+        <font size="10"><a href="/" class="btn-circle-border-double2" id="top" >やめる</a></font>
     </div>
     
     </body>
@@ -93,14 +93,24 @@
     function changeBack(){
         document.getElementById("smallcard").src="{% static 'back.jpg' %}";
     }
-//カードのチェンジ
-    function changeNext(){
+//初期アクセス
+    function firstFunc(){
         changeSuit();//スートを設定
         oya();//親カードを設定
         document.getElementById("bigcard").src=suit[oyacard];//親カードの書き換え
         ko();//子カードを設定(書き換えはめくるアニメーションで行う)
         changeBack();//子カードを裏面に
         changeDisplay2();//続けるやめるボタンの非表示
+        changeDisplay3();//ベットやめるボタンの非表示
+    }
+//続けるボタンからのカードチェンジ
+    function changeNext(){
+        changeSuit();//スートを設定
+        oya();//親カードを設定
+        document.getElementById("bigcard").src=suit[oyacard];//親カードの書き換え
+        ko();//子カードを設定(書き換えはめくるアニメーションで行う)
+        changeBack();//子カードを裏面に
+        changeDisplay1();//ハイアンドローボタンの表示
     }
 //カードをめくるアニメーション
     const buttonElem1 = document.getElementById('high');
@@ -151,41 +161,67 @@
     const buttonElem4 = document.getElementById('cont');
     if(buttonElem3 !== null){//続けるボタンを押したときの処理
         buttonElem3.addEventListener('click', () => {
+            const element = document.getElementById('smallcard');
+            if(element !== null){
+                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
+                rotationAnimationLoop(element, imagePath, 0);
+                isBack = !isBack;
+            }
             contFunc();
         });
     }
     if(buttonElem4 !== null){//やめるボタンを押したときの処理
         buttonElem4.addEventListener('click', () => {
+            const element = document.getElementById('smallcard');
+            if(element !== null){
+                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
+                rotationAnimationLoop(element, imagePath, 0);
+                isBack = !isBack;
+            }
             stopFunc();
         });
     }
-//ポイントが増えたり、カードが減ったりの処理
+//続けるボタンを押したあとの処理(ポイントが増えたり、カードが減ったり?)
     function contFunc(){
-        
+        changeNext();
     }
-//ポイントの獲得
+//やめるボタンを押したあとの処理(ポイントの獲得?)
     function stopFunc(){
-        
+        changeNext();
     }
-//表示非表示
-    function changeDisplay0(){//ハイ
-      var high = document.getElementById("high");
-      var low = document.getElementById("low");
-      if(high.style.visibility == "hidden"){
-        high.style.visibility = "visible";
-        low.style.visibility = "visible";
-      }else{
-        high.style.visibility = "hidden";
-        low.style.visibility = "hidden";
-      }
+//ハイアンドローボタンの処理
+    const buttonElem5 = document.getElementById('high');
+    const buttonElem6 = document.getElementById('low');
+    if(buttonElem5 !== null){//ハイボタンを押したときの処理
+        buttonElem5.addEventListener('click', () => {
+            highFunc();
+        });
+    }
+    if(buttonElem6 !== null){//ローボタンを押したときの処理
+        buttonElem6.addEventListener('click', () => {
+            lowFunc();
+        });
+    }
+//ハイボタンを押したあとの処理
+    function highFunc(){
       if(judg0() === "success"){
-          setTimeout("changeDisplay2();",650);
+        setTimeout("changeDisplay2();",650);
       }
       else if(judg0() === "failure"){
-          setTimeout("changeDisplay3();",650);
+        setTimeout("changeDisplay3();",650);
       }
     }
-    function changeDisplay1(){//ロー
+//ローボタンを押したあとの処理
+    function lowFunc(){
+      if(judg1() === "success"){
+        setTimeout("changeDisplay2();",650);
+      }
+      else if(judg1() === "failure"){
+        setTimeout("changeDisplay3();",650);
+      }
+    }
+//表示非表示
+    function changeDisplay1(){//ハイアンドローボタン
       var high = document.getElementById("high");
       var low = document.getElementById("low");
       if(high.style.visibility == "hidden"){
@@ -194,12 +230,6 @@
       }else{
         high.style.visibility = "hidden";
         low.style.visibility = "hidden";
-      }
-      if(judg1() === "success"){
-          setTimeout("changeDisplay2();",650);
-      }
-      else if(judg1() === "failure"){
-          setTimeout("changeDisplay3();",650);
       }
     }
     function changeDisplay2(){//続けるやめるボタン
@@ -213,8 +243,16 @@
         cont.style.display = "none";
       }
     }
-    function changeDisplay3(){//ベットボタン
-        
+    function changeDisplay3(){//ベットやめるボタン
+      var bet = document.getElementById("bet");
+      var top = document.getElementById("top");
+      if(bet.style.display == "none"){
+        bet.style.display = "block";
+        top.style.display = "block";
+      }else{
+        bet.style.display = "none";
+        top.style.display = "none";
+      }
     }
 //成功失敗の判定
     function judg0(){

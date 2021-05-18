@@ -50,23 +50,31 @@
     ,"{% static 'dia4.jpg' %}","{% static 'dia5.jpg' %}","{% static 'dia6.jpg' %}","{% static 'dia7.jpg' %}"
     ,"{% static 'dia8.jpg' %}","{% static 'dia9.jpg' %}","{% static 'dia10.jpg' %}","{% static 'dia11.jpg' %}"
     ,"{% static 'dia12.jpg' %}","{% static 'dia13.jpg' %}"];
-//function外で初期親カードと子カードを指定
-    const oyacard0 = Math.floor( Math.random() * images.length);//初期の親カード
-    const lowcard0 = Math.floor( Math.random() * images.length);//初期の子カード
-    
-//ハイアンドローボタンが押されたときのカード表示
-    function changeCard(){
-        
+//関数の外に親カードと子カード用の変数を作成
+var oyacard;
+var kocard;
+//親カードを設定する関数
+    function oya(){
+        oyacard = Math.floor( Math.random() * images.length);
+    }
+//子カードを設定する関数(親カードを設定したあとに呼び出す)
+    function ko(){
+        kocard = Math.floor( Math.random() * images.length);
+        while(kocard === oyacard){//親カードとダブったら選びなおす
+            kocard = Math.floor( Math.random() * images.length);
+        }
     }
 //裏面表示
     function changeBack(){
         document.getElementById("smallcard").src="{% static 'back.jpg' %}";
     }
-//初期アクセス時のカード表示
+//初期アクセス時の処理
     function firstScript(){
-        document.getElementById("bigcard").src=images[oyacard0];//親のカード
-        changeBack();
-        changeDisplay2();
+        oya();//親カードを設定
+        document.getElementById("bigcard").src=images[oyacard];
+        ko();//子カードを設定
+        changeBack();//子カードを裏面に
+        changeDisplay2();//続けるやめるボタンの非表示
     }
 //カードをめくるアニメーション
     const buttonElem1 = document.getElementById('high');
@@ -77,7 +85,7 @@
         buttonElem1.addEventListener('click', () => {
             const element = document.getElementById('smallcard');
             if(element !== null){
-                let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
+                let imagePath = isBack ? images[kocard] : "{% static 'back.jpg' %}";
                 rotationAnimationLoop(element, imagePath, 0);
                 isBack = !isBack;
             }
@@ -87,7 +95,7 @@
         buttonElem2.addEventListener('click', () => {
             const element = document.getElementById('smallcard');
             if(element !== null){
-                let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
+                let imagePath = isBack ? images[kocard] : "{% static 'back.jpg' %}";
                 rotationAnimationLoop(element, imagePath, 0);
                 isBack = !isBack;
             }
@@ -124,10 +132,10 @@
         low.style.visibility = "hidden";
       }
       if(judg() === "success"){
-          changeDisplay2();
+          setTimeout("changeDisplay2();",650);
       }
       else{
-          changeDisplay3();
+          setTimeout("changeDisplay3();",650);
       }
     }
     function changeDisplay2(){//続けるやめるボタン
@@ -139,7 +147,7 @@
       }else{
         stop.style.display = "none";
         cont.style.display = "none";
-      }        
+      }
     }
     function changeDisplay3(){//ベット画面
         

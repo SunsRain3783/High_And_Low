@@ -21,8 +21,14 @@
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high">▲ HIGH ▲</a>
-        <a href="#" class="btn2" id="low">▼ LOW ▼</a>
+        <a href="#" class="btn" id="high" onclick="changeDisplay1();" >▲ HIGH ▲</a>
+        <a href="#" class="btn2" id="low" onclick="changeDisplay1();" >▼ LOW ▼</a>
+    </div>
+    
+    <!--続けるやめるボタン-->
+    <div class="stopcont">
+        <font size="20"><a href="#" class="bt-stop" id="stop" onclick="changeDisplay2();" >続ける</a></font>
+        <font size="20"><a href="#" class="bt-cont" id="cont" onclick="changeDisplay2();" >やめる</a></font>
     </div>
     
     </body>
@@ -60,49 +66,86 @@
     function firstScript(){
         document.getElementById("bigcard").src=images[oyacard0];//親のカード
         changeBack();
+        changeDisplay2();
     }
 //カードをめくるアニメーション
-const buttonElem1 = document.getElementById('high');
-const buttonElem2 = document.getElementById('low');
-let isBack = true;
-
-if(buttonElem1 !== null){
-    buttonElem1.addEventListener('click', () => {
-        const element = document.getElementById('smallcard');
-        if(element !== null){
-            let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
-            rotationAnimationLoop(element, imagePath, 0);
-            isBack = !isBack;
+    const buttonElem1 = document.getElementById('high');
+    const buttonElem2 = document.getElementById('low');
+    let isBack = true;
+    
+    if(buttonElem1 !== null){
+        buttonElem1.addEventListener('click', () => {
+            const element = document.getElementById('smallcard');
+            if(element !== null){
+                let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
+                rotationAnimationLoop(element, imagePath, 0);
+                isBack = !isBack;
+            }
+        });
+    }
+    if(buttonElem2 !== null){
+        buttonElem2.addEventListener('click', () => {
+            const element = document.getElementById('smallcard');
+            if(element !== null){
+                let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
+                rotationAnimationLoop(element, imagePath, 0);
+                isBack = !isBack;
+            }
+        });
+    }
+    const rotationAnimationLoop = (element, imagePath, deg) =>{
+        element.style.webkitTransform = 'rotateY(360deg)';
+        if( deg <= 180 ){
+            rotationAnimation(element, imagePath, deg);
+            setTimeout( 
+                () => {
+                    rotationAnimationLoop(element, imagePath, deg+= 5 ) 
+                }, 
+            1 );
         }
-    });
-}
-if(buttonElem2 !== null){
-    buttonElem2.addEventListener('click', () => {
-        const element = document.getElementById('smallcard');
-        if(element !== null){
-            let imagePath = isBack ? images[lowcard0] : "{% static 'back.jpg' %}";
-            rotationAnimationLoop(element, imagePath, 0);
-            isBack = !isBack;
+    }
+    const rotationAnimation = (element, imagePath, deg) =>{
+        if ( 180 === deg ){
+            element.src =  imagePath;//画像の切り替え
         }
-    });
-}
-const rotationAnimationLoop = (element, imagePath, deg) =>{
-    element.style.webkitTransform = 'rotateY(360deg)';
-    if( deg <= 180 ){
-        rotationAnimation(element, imagePath, deg);
-        setTimeout( 
-            () => {
-                rotationAnimationLoop(element, imagePath, deg+= 5 ) 
-            }, 
-        1 );
+        else {
+            element.style.webkitTransform = 'rotateY(' + deg + 'deg)';//回転アニメーション
+        }
     }
-}
-const rotationAnimation = (element, imagePath, deg) =>{
-    if ( 180 === deg ){
-        element.src =  imagePath;//画像の切り替え
+//ボタンの表示非表示
+    function changeDisplay1(){//ハイアンドローボタン
+      var high = document.getElementById("high");
+      var low = document.getElementById("low");
+      if(high.style.visibility == "hidden"){
+        high.style.visibility = "visible";
+        low.style.visibility = "visible";
+      }else{
+        high.style.visibility = "hidden";
+        low.style.visibility = "hidden";
+      }
+      if(judg() === "success"){
+          changeDisplay2();
+      }
+      else{
+          changeDisplay3();
+      }
     }
-    else {
-        element.style.webkitTransform = 'rotateY(' + deg + 'deg)';//回転アニメーション
+    function changeDisplay2(){//続けるやめるボタン
+      var stop = document.getElementById("stop");
+      var cont = document.getElementById("cont");
+      if(stop.style.display == "none"){
+        stop.style.display = "block";
+        cont.style.display = "block";
+      }else{
+        stop.style.display = "none";
+        cont.style.display = "none";
+      }        
     }
-}
+    function changeDisplay3(){//ベット画面
+        
+    }
+//成功失敗の判定
+    function judg(){
+        
+    }
 </script>

@@ -36,6 +36,18 @@
         <font size="10"><a href="/" class="btn-circle-border-double2" id="top" >やめる</a></font>
     </div>
     
+    <!-- 目立たせたい要素 -->
+    <div class="pickupblock">
+        <input type="button" class="bt" value="対象のボタン">
+        <div id="setsumeitext">
+        ↑まずはこのボタンの役割を覚えましょう！
+        </div>
+    </div>
+
+    <!-- モーダル部分 -->
+    <div class="modaloverlay" id="modaloverlay_id">
+    </div>
+    
     </body>
 </html>
 
@@ -102,6 +114,7 @@
         changeBack();//子カードを裏面に
         changeDisplay2();//続けるやめるボタンの非表示
         changeDisplay3();//ベットやめるボタンの非表示
+        modal_original('on');
     }
 //続けるボタンからのカードチェンジ
     function changeNext(){
@@ -271,5 +284,32 @@
             return "failure";
         }
     }
-    
+
+
+function modal_original(modalswitch){
+
+    const setting_modalid = 'modaloverlay_id';
+    //モーダルのIDを指定
+
+    const setting_stext = 'setsumeitext'
+    //説明テキスト要素のIDを指定
+
+    var smodalobj = document.getElementById(setting_modalid);
+
+    //引数がonの場合は表示する
+    if(modalswitch=='on'){
+    document.getElementById(setting_stext).style.display = 'block';
+    document.getElementById(setting_modalid).style.display = 'block';
+    }
+
+    //イベントを定義
+    smodalobj.addEventListener('click',overlayclick, false);
+
+//モーダルをクリックしたら起動し、不要な要素を非表示に
+    function overlayclick(){
+        document.getElementById(setting_stext).style.display = 'none';
+        document.getElementById(setting_modalid).style.display = 'none';
+    }
+
+}
 </script>

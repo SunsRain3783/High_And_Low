@@ -31,15 +31,20 @@
         <font size="20"><a href="#" class="bt-cont" id="cont" onclick="changeDisplay2();" >やめる</a></font>
     </div>
     <!--ベットやめるボタン-->
-    <div class="bettop">
+    <!--<div class="bettop">
         <font size="10"><a href="#" class="btn-circle-border-double" id="bet" onclick="changeDisplay3();" >ベット</a></font>
         <font size="10"><a href="/" class="btn-circle-border-double2" id="top" >トップ</a></font>
-    </div>
+    </div>-->
     
-    <!--ベットボタン-->
+    <!--ベットボタン(OK)-->
     <div class="pickupblock">
         <img src="{% static 'betcoin.jpg' %}" width="1200" class="betcoin" id="betcoin" />
-        <a href="#" class="btn-icon" id="betbtn" >OK </a>
+        <a href="#" class="btn-icon" id="betbtn" onclick="betOK();" >OK </a>
+    </div>
+    
+    <!--ベットボタン(BETする)-->
+    <div class="container">
+        <a href="#" class="btn-denim" id="bet_suru" onclick="betsuru();" >BETする</a>
     </div>
 
     <!-- モーダル部分 -->
@@ -112,8 +117,9 @@
         changeBack();//子カードを裏面に
         changeDisplay1();//ハイアンドローボタンの非表示
         changeDisplay2();//続けるやめるボタンの非表示
-        changeDisplay3();//ベットやめるボタンの非表示
-        modal_original('on');
+        //changeDisplay3();//ベットやめるボタンの非表示
+        changeDisplay4();//ベット画像とOKの非表示
+        //modal_original('on');
     }
 //続けるボタンからのカードチェンジ
     function changeNext(){
@@ -220,7 +226,7 @@
         setTimeout("changeDisplay2();",650);
       }
       else if(judg0() === "failure"){
-        setTimeout("changeDisplay3();",650);
+        setTimeout("changeDisplay5();",650);
       }
     }
 //ローボタンを押したあとの処理
@@ -229,24 +235,14 @@
         setTimeout("changeDisplay2();",650);
       }
       else if(judg1() === "failure"){
-        setTimeout("changeDisplay3();",650);
+        setTimeout("changeDisplay5();",650);
       }
     }
-//ベットボタンの処理
-    const buttonElem7 = document.getElementById('betcoin');
-    const buttonElem8 = document.getElementById('betbtn');
-    if(buttonElem8 !== null){//ベットボタンを押したときの処理
-        buttonElem8.addEventListener('click', () => {
-            if(buttonElem7.style.visibility == "hidden"){
-                buttonElem7.style.visibility = "visible";
-                buttonElem8.style.visibility = "visible";
-            }else{
-                buttonElem7.style.visibility = "hidden";
-                buttonElem8.style.visibility = "hidden";
-            }
-            changeDisplay1();
-            modal_original("");
-        });
+//ベットするボタンを押したあとの処理
+    function betsuru(){
+        changeDisplay5();
+        changeDisplay4();
+        modal_original('on');
     }
 //表示非表示
     function changeDisplay1(){//ハイアンドローボタン
@@ -271,16 +267,41 @@
         cont.style.display = "none";
       }
     }
-    function changeDisplay3(){//ベットやめるボタン
-      var bet = document.getElementById("bet");
-      var top = document.getElementById("top");
-      if(bet.style.display == "none"){
-        bet.style.display = "block";
-        top.style.display = "block";
-      }else{
-        bet.style.display = "none";
-        top.style.display = "none";
-      }
+//    function changeDisplay3(){//ベットやめるボタン
+//      var bet = document.getElementById("bet");
+//      var top = document.getElementById("top");
+//      if(bet.style.display == "none"){
+//        bet.style.display = "block";
+//        top.style.display = "block";
+//      }else{
+//        bet.style.display = "none";
+//        top.style.display = "none";
+//      }
+//    }
+    function changeDisplay4(){//ベット画像とOK
+        var buttonElem7 = document.getElementById('betcoin');
+        var buttonElem8 = document.getElementById('betbtn');
+        if(buttonElem7.style.visibility == "hidden"){
+            buttonElem7.style.visibility = "visible";
+            buttonElem8.style.visibility = "visible";
+        }else{
+            buttonElem7.style.visibility = "hidden";
+            buttonElem8.style.visibility = "hidden";
+        }        
+    }
+    function changeDisplay5(){//ベットするボタン
+        var buttonElem9 = document.getElementById('bet_suru');
+        if(buttonElem9.style.display == "none"){
+            buttonElem9.style.display = "block";
+        }else{
+            buttonElem9.style.display = "none";
+        }
+    }
+//ベットボタン(OK)の処理
+    function betOK(){
+        changeDisplay4();
+        changeDisplay1();
+        modal_original("");
     }
 //成功失敗の判定
     function judg0(){

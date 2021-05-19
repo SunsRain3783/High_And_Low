@@ -302,17 +302,17 @@ a.btn-circle-border-double2:hover:after{
 }
 /*ベットボタン(BETする)*/
 .btn-denim {
-  margin-top:50px;
-  margin-left:588px;
+  margin-top:100px;
+  margin-left:646px;
   display: inline-block;
   max-width: 500px;
   text-align: left;
   background-color: #FF0033;
-  font-size: 60px;
+  font-size: 16px;
   color: #FFF;
   text-decoration: none;
   font-weight: bold;
-  padding: 25px 50px;
+  padding: 8px 16px;
   border: 1px dashed #FFF;
   box-shadow: 0px 0px 0px 5px #FF0033;/* box-shadowで外枠を */
 }

@@ -300,6 +300,26 @@ a.btn-circle-border-double2:hover:after{
   border-radius: 50%;
   opacity: 1;
 }
+/*ベットボタン(BETする)*/
+.btn-denim {
+  margin-top:50px;
+  margin-left:588px;
+  display: inline-block;
+  max-width: 500px;
+  text-align: left;
+  background-color: #FF0033;
+  font-size: 60px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 25px 50px;
+  border: 1px dashed #FFF;
+  box-shadow: 0px 0px 0px 5px #FF0033;/* box-shadowで外枠を */
+}
+
+.btn-denim:hover {
+  border-style: solid;
+}
 
 /* モーダルのスタイル */
 .modaloverlay {
@@ -330,7 +350,7 @@ margin-top:-1000px;
 z-index:15000;
 }
 
-/* ベットボタン */
+/* ベットボタン(OK) */
 .btn-icon {
   -webkit-appearance: none;
   z-index:15000;

@@ -59,6 +59,18 @@
     <div class="modaloverlay" id="modaloverlay_id">
     </div>
     
+    <!--所持ポイント-->
+    <div class="st">
+        <img src="{% static 'syoji.png' %}" class="syoji" id="syoji" />
+        <!--強さの画像-->
+        <img src="{% static 'tsuyoi.png' %}" class="tsuyosa" id="tsuyosa" />
+    </div>
+    <!--獲得ポイント-->
+    <div>
+        <img src="{% static 'get.png' %}" class="get" id="get" />
+    </div>
+
+    
     </body>
 </html>
 
@@ -128,6 +140,8 @@
         //changeDisplay3();//ベットやめるボタンの非表示
         changeDisplay4();//ベット画像とOKの非表示
         changeDisplay6();//カード非表示
+        changeDisplay9();//獲得ポイントの画像の非表示
+        changeDisplay10();//強さ画像の非表示
         //modal_original('on');
     }
 //続けるボタンからのカードチェンジ
@@ -208,6 +222,9 @@
         changeDisplay5();
         changeDisplay6();
         changeDisplay7();
+        changeDisplay8();
+        changeDisplay9();
+        changeDisplay10();
     }
 //ハイボタンを押したあとの処理
     function highFunc(){
@@ -237,7 +254,7 @@
 //失敗したあとの処理
     function lose(){
         //LOSE画像
-        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7();", 1000)
+        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7(); changeDisplay8(); changeDisplay9(); changeDisplay10();", 1000)
     }
 //ベットするボタンを押したあとの処理
     function betsuru(){
@@ -323,12 +340,39 @@
         image.style.display = "none";
       }
     }
+    function changeDisplay8(){//所持ポイントの画像
+      var s = document.getElementById("syoji");
+      if(s.style.display == "none"){
+        s.style.display = "block";
+      }else{
+        s.style.display = "none";
+      }
+    }
+    function changeDisplay9(){//獲得ポイントの画像
+      var g = document.getElementById("get");
+      if(g.style.display == "none"){
+        g.style.display = "block";
+      }else{
+        g.style.display = "none";
+      }
+    }
+    function changeDisplay10(){//強さ画像
+      var t = document.getElementById("tsuyosa");
+      if(t.style.display == "none"){
+        t.style.display = "block";
+      }else{
+        t.style.display = "none";
+      }
+    }
 //ベットボタン(OK)を押したあとの処理
     function betOK(){
         changeDisplay4();
         changeDisplay1();
         changeDisplay6();
         changeDisplay7();
+        changeDisplay8();
+        changeDisplay9();
+        changeDisplay10();
         modal_original("");
     }
 //成功失敗の判定

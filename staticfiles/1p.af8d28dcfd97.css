@@ -14,24 +14,24 @@ body{
 /*所持ポイント画像*/
 .syoji{
     position:relative;
-    top:-780px;
+    top:-750px;
     width: 400px;
     height: 100px;
 }
 /*獲得ポイント画像*/
 .get{
     position:relative;
-    top:-780px;
+    top:-750px;
     width: 400px;
     height: 100px;
 }
 /*強さ画像*/
 .tsuyosa{
     position:relative;
-    top:-730px;
-    left:34%;
-    width: 580px;
-    height: 180px;
+    top:-700px;
+    left:32%;
+    width: 600px;
+    height: 160px;
 }
 
 /*ヘッダー*/

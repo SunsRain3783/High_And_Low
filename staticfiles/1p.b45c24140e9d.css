@@ -12,26 +12,14 @@ body{
 }
 
 /*所持ポイント画像*/
-.syoji1{
+.syoji{
     position:relative;
-    top:-700px;
-    width: 400px;
-    height: 100px;
-}
-.syoji2{
-    position:relative;
-    top:-700px;
+    top:-780px;
     width: 400px;
     height: 100px;
 }
 /*獲得ポイント画像*/
-.get1{
-    position:relative;
-    top:-700px;
-    width: 400px;
-    height: 100px;
-}
-.get2{
+.get{
     position:relative;
     top:-700px;
     width: 400px;

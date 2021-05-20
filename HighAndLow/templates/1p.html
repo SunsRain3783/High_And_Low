@@ -8,7 +8,8 @@
     <!--ヘッダー-->
     <div class="header">
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
-        <a href="#" class="btn-flat-vertical-border2" style="left:85%;">遊び方</a>
+        <a href="#" class="btn-flat-vertical-border3" style="left:20%;">ログイン</a>
+        <a href="#" class="btn-flat-vertical-border2" style="left:60%;">遊び方</a>
     </div>
     <!--画像-->
     <div class="content">
@@ -47,7 +48,9 @@
     
     <!--ベットボタン(BETする)-->
     <div class="container">
+        <a href="#" class="btn-denim2" id="shop" onclick="shop();" >ショップ</a>
         <a href="#" class="btn-denim" id="bet_suru" onclick="betsuru();" >BETする</a>
+        <a href="#" class="btn-denim3" id="achieve" onclick="achieve();" >実績</a>
     </div>
 
     <!-- モーダル部分 -->
@@ -287,10 +290,16 @@
     }
     function changeDisplay5(){//ベットするボタン
         var betSuru = document.getElementById('bet_suru');
+        var shop = document.getElementById('shop');
+        var achieve = document.getElementById('achieve');
         if(betSuru.style.display == "none"){
             betSuru.style.display = "block";
+            shop.style.display = "block";
+            achieve.style.display = "block";
         }else{
             betSuru.style.display = "none";
+            shop.style.display = "none";
+            achieve.style.display = "none";
         }
     }
     function changeDisplay6(){//親カード子カード

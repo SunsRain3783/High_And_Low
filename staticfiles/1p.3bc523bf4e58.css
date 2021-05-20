@@ -57,31 +57,13 @@ body{
   background: #668ad8;
   color: #FFF;
 }
-.btn-flat-vertical-border3 {
-  position: relative;
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.5em 1em;
-  text-decoration: none;
-  border-left: solid 4px #3CB371;
-  border-right: solid 4px #3CB371;
-  color: #3CB371;
-  background: #e1f3ff;
-  transition: .4s;
-}
-
-.btn-flat-vertical-border3:hover {
-  background: #3CB371;
-  color: #FFF;
-}
-
 /*画像*/
 img.img1 {
 width: 700px;
 height: 500px;
 }
 .content {
-  margin-left:440px;
+  margin-left:400px;
   margin-top:50px;
 }
 /*カード*/
@@ -344,7 +326,7 @@ a.btn-circle-border-double2:hover:after{
 
 .btn-denim {
   margin-top:280px;
-  margin-right:0px;
+  margin-right:80px;
   display: inline-block;
   max-width: 250px;
   text-align: center;

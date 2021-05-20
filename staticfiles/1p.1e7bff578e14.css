@@ -63,15 +63,15 @@ body{
   font-weight: bold;
   padding: 0.5em 1em;
   text-decoration: none;
-  border-left: solid 4px #3CB371;
-  border-right: solid 4px #3CB371;
-  color: #3CB371;
+  border-left: solid 4px #2DFF57;
+  border-right: solid 4px #2DFF57;
+  color: #2DFF57;
   background: #e1f3ff;
   transition: .4s;
 }
 
 .btn-flat-vertical-border3:hover {
-  background: #3CB371;
+  background: #2DFF57;
   color: #FFF;
 }
 

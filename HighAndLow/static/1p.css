@@ -57,6 +57,23 @@ body{
   background: #668ad8;
   color: #FFF;
 }
+/*画像*/
+img.img1 {
+width: 750px;
+height: 500px;
+}
+.content {
+  margin-left:380px;
+  margin-top:50px;
+}
+/*カード*/
+.bigcard{
+    margin-top:-35px;
+    margin-left:628px;
+}
+.smallcard{
+    margin-left:632px;
+}
 
 /*ハイアンドローボタン*/
 .highbtn{
@@ -302,11 +319,11 @@ a.btn-circle-border-double2:hover:after{
 }
 /*ベットボタン(BETする)*/
 .btn-denim {
-  margin-top:50px;
+  margin-top:280px;
   margin-left:588px;
   display: inline-block;
-  max-width: 500px;
-  text-align: left;
+  max-width: 250px;
+  text-align: center;
   background-color: #FF0033;
   font-size: 60px;
   color: #FFF;

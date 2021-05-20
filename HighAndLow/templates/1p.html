@@ -10,25 +10,28 @@
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
         <a href="#" class="btn-flat-vertical-border2" style="left:85%;">遊び方</a>
     </div>
-    
+    <!--画像-->
+    <div class="content">
+      <img src="{% static 'HighAndLow_title.jpg' %}" class="img1" id="image" />
+    </div>
     <!--トランプの画像-->
-    <div style="text-align: center">
+    <div>
         <img src="" width="270" class="bigcard" id="bigcard" />
     </div>
-    <div style="text-align: center">
+    <div>
         <img src="" width="260" class="smallcard" id="smallcard" />
     </div>
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high" onclick="changeDisplay1();" >▲ HIGH ▲</a>
-        <a href="#" class="btn2" id="low" onclick="changeDisplay1();" >▼ LOW ▼</a>
+        <a href="#" class="btn" id="high" onclick="highFunc();" >▲ HIGH ▲</a>
+        <a href="#" class="btn2" id="low" onclick="lowFunc();" >▼ LOW ▼</a>
     </div>
     
     <!--続けるやめるボタン-->
     <div class="stopcont">
-        <font size="20"><a href="#" class="bt-stop" id="stop" onclick="changeDisplay2();" >続ける</a></font>
-        <font size="20"><a href="#" class="bt-cont" id="cont" onclick="changeDisplay2();" >やめる</a></font>
+        <font size="20"><a href="#" class="bt-stop" id="stop" onclick="contFunc();" >続ける</a></font>
+        <font size="20"><a href="#" class="bt-cont" id="cont" onclick="stopFunc();" >やめる</a></font>
     </div>
     <!--ベットやめるボタン-->
     <!--<div class="bettop">
@@ -119,6 +122,7 @@
         changeDisplay2();//続けるやめるボタンの非表示
         //changeDisplay3();//ベットやめるボタンの非表示
         changeDisplay4();//ベット画像とOKの非表示
+        changeDisplay6();//カード非表示
         //modal_original('on');
     }
 //続けるボタンからのカードチェンジ
@@ -128,7 +132,6 @@
         document.getElementById("bigcard").src=suit[oyacard];//親カードの書き換え
         ko();//子カードを設定(書き換えはめくるアニメーションで行う)
         changeBack();//子カードを裏面に
-        changeDisplay1();//ハイアンドローボタンの表示
     }
 //カードをめくるアニメーション
     const buttonElem1 = document.getElementById('high');
@@ -174,69 +177,62 @@
             element.style.webkitTransform = 'rotateY(' + deg + 'deg)';//回転アニメーション
         }
     }
-//続けるやめるボタンの処理
-    const buttonElem3 = document.getElementById('stop');
-    const buttonElem4 = document.getElementById('cont');
-    if(buttonElem3 !== null){//続けるボタンを押したときの処理
-        buttonElem3.addEventListener('click', () => {
-            const element = document.getElementById('smallcard');
-            if(element !== null){
-                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
-                rotationAnimationLoop(element, imagePath, 0);
-                isBack = !isBack;
-            }
-            contFunc();
-        });
+//カードをめくる関数
+    function mekuru(){
+        const element = document.getElementById('smallcard');
+        if(element !== null){
+            let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
+            rotationAnimationLoop(element, imagePath, 0);
+            isBack = !isBack;
+        }
     }
-    if(buttonElem4 !== null){//やめるボタンを押したときの処理
-        buttonElem4.addEventListener('click', () => {
-            const element = document.getElementById('smallcard');
-            if(element !== null){
-                let imagePath = isBack ? suit[kocard] : "{% static 'back.jpg' %}";
-                rotationAnimationLoop(element, imagePath, 0);
-                isBack = !isBack;
-            }
-            stopFunc();
-        });
-    }
+
 //続けるボタンを押したあとの処理(ポイントが増えたり、カードが減ったり?)
     function contFunc(){
+        changeDisplay2();
+        mekuru();
         changeNext();
+        changeDisplay1();
     }
 //やめるボタンを押したあとの処理(ポイントの獲得?)
     function stopFunc(){
+        //ポイント獲得のメッセージ
+        changeDisplay2();
+        mekuru();
         changeNext();
-    }
-//ハイアンドローボタンの処理
-    const buttonElem5 = document.getElementById('high');
-    const buttonElem6 = document.getElementById('low');
-    if(buttonElem5 !== null){//ハイボタンを押したときの処理
-        buttonElem5.addEventListener('click', () => {
-            highFunc();
-        });
-    }
-    if(buttonElem6 !== null){//ローボタンを押したときの処理
-        buttonElem6.addEventListener('click', () => {
-            lowFunc();
-        });
+        changeDisplay5();
+        changeDisplay6();
+        changeDisplay7();
     }
 //ハイボタンを押したあとの処理
     function highFunc(){
+      changeDisplay1();
       if(judg0() === "success"){
-        setTimeout("changeDisplay2();",650);
+        setTimeout("win();",650);
       }
       else if(judg0() === "failure"){
-        setTimeout("changeDisplay5();",650);
+        setTimeout("lose();",650);
       }
     }
 //ローボタンを押したあとの処理
     function lowFunc(){
+      changeDisplay1();
       if(judg1() === "success"){
-        setTimeout("changeDisplay2();",650);
+        setTimeout("win();",650);
       }
       else if(judg1() === "failure"){
-        setTimeout("changeDisplay5();",650);
+        setTimeout("lose();",650);
       }
+    }
+//成功したあとの処理
+    function win(){
+        //WIN画像
+        changeDisplay2();//続けるやめるボタンがでてくる
+    }
+//失敗したあとの処理
+    function lose(){
+        //LOSE画像
+        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7();", 1000)
     }
 //ベットするボタンを押したあとの処理
     function betsuru(){
@@ -279,28 +275,49 @@
 //      }
 //    }
     function changeDisplay4(){//ベット画像とOK
-        var buttonElem7 = document.getElementById('betcoin');
-        var buttonElem8 = document.getElementById('betbtn');
-        if(buttonElem7.style.visibility == "hidden"){
-            buttonElem7.style.visibility = "visible";
-            buttonElem8.style.visibility = "visible";
+        var betCoin = document.getElementById('betcoin');
+        var betBtn = document.getElementById('betbtn');
+        if(betCoin.style.visibility == "hidden"){
+            betCoin.style.visibility = "visible";
+            betBtn.style.visibility = "visible";
         }else{
-            buttonElem7.style.visibility = "hidden";
-            buttonElem8.style.visibility = "hidden";
+            betCoin.style.visibility = "hidden";
+            betBtn.style.visibility = "hidden";
         }        
     }
     function changeDisplay5(){//ベットするボタン
-        var buttonElem9 = document.getElementById('bet_suru');
-        if(buttonElem9.style.display == "none"){
-            buttonElem9.style.display = "block";
+        var betSuru = document.getElementById('bet_suru');
+        if(betSuru.style.display == "none"){
+            betSuru.style.display = "block";
         }else{
-            buttonElem9.style.display = "none";
+            betSuru.style.display = "none";
         }
     }
-//ベットボタン(OK)の処理
+    function changeDisplay6(){//親カード子カード
+      var big = document.getElementById("bigcard");
+      var small = document.getElementById("smallcard");
+      if(big.style.display == "none"){
+        big.style.display = "block";
+        small.style.display = "block";
+      }else{
+        big.style.display = "none";
+        small.style.display = "none";
+      }
+    }
+    function changeDisplay7(){//画像
+      var image = document.getElementById("image");
+      if(image.style.display == "none"){
+        image.style.display = "block";
+      }else{
+        image.style.display = "none";
+      }
+    }
+//ベットボタン(OK)を押したあとの処理
     function betOK(){
         changeDisplay4();
         changeDisplay1();
+        changeDisplay6();
+        changeDisplay7();
         modal_original("");
     }
 //成功失敗の判定

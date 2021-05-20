@@ -14,12 +14,6 @@ body{
   max-height:40px;
   background-color: rgba(0,0,0,0.5);
 }
-.name{
-    background-color: #fff;
-    position:relative;
-    top:-17px;
-    padding: 8px 80px;
-}
 .block {
   text-align: right;
   position: relative;
@@ -29,7 +23,7 @@ body{
 
 .btn-flat-vertical-border {
   position:relative;
-  top:-17px;
+  top:-15px;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
@@ -48,7 +42,7 @@ body{
 
 .btn-flat-vertical-border2 {
   position:relative;
-  top:-17px;
+  top:-15px;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
@@ -66,7 +60,7 @@ body{
 }
 .btn-flat-vertical-border3 {
   position:relative;
-  top:-17px;
+  top:-15px;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
@@ -363,14 +357,14 @@ a.btn-circle-border-double2:hover:after{
   display: inline-block;
   max-width: 250px;
   text-align: center;
-  background-color: #DD0000;
+  background-color: #FF0033;
   font-size: 60px;
   color: #FFF;
   text-decoration: none;
   font-weight: bold;
   padding: 25px 50px;
   border: 1px dashed #FFF;
-  box-shadow: 0px 0px 0px 5px #DD0000;/* box-shadowで外枠を */
+  box-shadow: 0px 0px 0px 5px #FF0033;/* box-shadowで外枠を */
 }
 
 .btn-denim:hover {

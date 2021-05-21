@@ -17,3 +17,6 @@ class SoloView(TemplateView):
     
 class MultiView(TemplateView):
     template_name = "2p.html"
+    
+class HowView(TemplateView):
+    template_name = "how.html"

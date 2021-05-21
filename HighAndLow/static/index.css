@@ -134,3 +134,43 @@ a.cp_btn2:active:after {
 	height: 350%;
 	opacity: 1;
 }
+
+a.cp_btn3 {
+	display: block;
+	position: relative;
+	top: 550px;
+　  left: 50%;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	border:1px solid #FF8C00;
+	background: #FF8C00;
+	overflow: hidden;
+	z-index: 1 !important;
+}
+a.cp_btn3:after {
+	content:"";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 0;
+	width: 100%;
+	background : #fff;
+	opacity: 0;
+	transform: translateX(-50%) translateY(-50%) rotate(45deg);
+	transition: 0.3s;
+	z-index: -1;
+}
+a.cp_btn3:hover {
+	color: #4689FF;
+}
+a.cp_btn3:hover:after {
+	height: 250%;
+	opacity: 1;
+}
+a.cp_btn3:active:after {
+	height: 350%;
+	opacity: 1;
+}

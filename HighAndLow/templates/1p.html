@@ -60,25 +60,33 @@
     </div>
     
     <!--所持ポイント-->
-    <div class="st">
-        <img src="{% static 'syoji.png' %}" class="syoji1" id="syoji1" />
-    </div>
+    <table>
+    <tr>
+        <div><img src="{% static 'syoji.png' %}" class="syoji1" id="syoji1" /></div>
     <!--獲得ポイント-->
-    <div>
-        <img src="{% static 'get.png' %}" class="get1" id="get1" />
-    </div>
+        <div><img src="{% static 'get.png' %}" class="get1" id="get1" /></div>
+    </tr></table>
     
     <!--所持ポイント-->
-    <div class="st">
-        <img src="{% static 'syoji.png' %}" class="syoji2" id="syoji2" />
-    </div>
+    <table>
+    <tr>
+        <div><img src="{% static 'syoji.png' %}" class="syoji2" id="syoji2" /></div>
     <!--獲得ポイント-->
-    <div>
-        <img src="{% static 'get.png' %}" class="get2" id="get2" />
-    </div>
+        <div><img src="{% static 'get.png' %}" class="get2" id="get2" /></div>
+    </tr></table>
+    
+    <!--所持ポイント-->
+    <table>
+    <tr>
+        <div><img src="{% static 'syoji.png' %}" class="syoji3" id="syoji3" /></div>
+    <!--獲得ポイント-->
+        <div><img src="{% static 'get.png' %}" class="get3" id="get3" /></div>
+    </tr></table>
 
     <!--強さの画像-->
     <img src="{% static 'tsuyoi.png' %}" class="tsuyosa" id="tsuyosa" />
+    <!--強さの画像-->
+    <img src="{% static 'tsuyoi.png' %}" class="tsuyosa2" id="tsuyosa2" />
     
     </body>
 </html>
@@ -149,10 +157,13 @@
         //changeDisplay3();//ベットやめるボタンの非表示
         changeDisplay4();//ベット画像とOKの非表示
         changeDisplay6();//カード非表示
-        changeDisplay10();//強さ画像の非表示
+        syojiget2();//所持、獲得ポイント２の非表示
+        syojiget3();//所持、獲得ポイント３の非表示
+        tsuyosa1();//強さ画像１の非表示
+        tsuyosa2();//強さ画像２の非表示
         //modal_original('on');
     }
-//続けるボタンからのカードチェンジ
+//カードチェンジ
     function changeNext(){
         changeSuit();//スートを設定
         oya();//親カードを設定
@@ -220,6 +231,10 @@
         mekuru();
         changeNext();
         changeDisplay1();
+        tsuyosa2();//消える
+        tsuyosa1();//見える
+        syojiget3();//消える
+        syojiget2();//見える
     }
 //やめるボタンを押したあとの処理(ポイントの獲得?)
     function stopFunc(){
@@ -230,7 +245,9 @@
         changeDisplay5();
         changeDisplay6();
         changeDisplay7();
-        changeDisplay10();
+        tsuyosa2();//消える
+        syojiget3();//消える
+        syojiget1();//見える
     }
 //ハイボタンを押したあとの処理
     function highFunc(){
@@ -256,11 +273,15 @@
     function win(){
         //WIN画像
         changeDisplay2();//続けるやめるボタンがでてくる
+        tsuyosa1();//消える
+        tsuyosa2();//見える
+        syojiget2();//消える
+        syojiget3();//見える
     }
 //失敗したあとの処理
     function lose(){
         //LOSE画像
-        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7(); changeDisplay10();", 1000)
+        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7(); tsuyosa1(); syojiget2(); syojiget1();", 1000)
     }
 //ベットするボタンを押したあとの処理
     function betsuru(){
@@ -346,12 +367,20 @@
         image.style.display = "none";
       }
     }
-    function changeDisplay10(){//強さ画像
+    function tsuyosa1(){//強さ画像
       var t = document.getElementById("tsuyosa");
       if(t.style.display == "none"){
         t.style.display = "block";
       }else{
         t.style.display = "none";
+      }
+    }
+    function tsuyosa2(){//強さ画像
+      var ts = document.getElementById("tsuyosa2");
+      if(ts.style.display == "none"){
+        ts.style.display = "block";
+      }else{
+        ts.style.display = "none";
       }
     }
     function syojiget1(){
@@ -366,14 +395,25 @@
       }
     }
     function syojiget2(){
-      var s = document.getElementById("syoji2");
-      var g = document.getElementById("get2");
-      if(s.style.display == "none"){
-        s.style.display = "block";
-        g.style.display = "block";
+      var sy = document.getElementById("syoji2");
+      var ge = document.getElementById("get2");
+      if(sy.style.display == "none"){
+        sy.style.display = "block";
+        ge.style.display = "block";
       }else{
-        s.style.display = "none";
-        g.style.display = "none";
+        sy.style.display = "none";
+        ge.style.display = "none";
+      }
+    }
+    function syojiget3(){
+      var syy = document.getElementById("syoji3");
+      var gee = document.getElementById("get3");
+      if(syy.style.display == "none"){
+        syy.style.display = "block";
+        gee.style.display = "block";
+      }else{
+        syy.style.display = "none";
+        gee.style.display = "none";
       }
     }
 //ベットボタン(OK)を押したあとの処理
@@ -382,7 +422,9 @@
         changeDisplay1();
         changeDisplay6();
         changeDisplay7();
-        changeDisplay10();
+        tsuyosa1();//見える
+        syojiget1();//消える
+        syojiget2();//見える
         modal_original("");
     }
 //成功失敗の判定

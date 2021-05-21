@@ -22,13 +22,13 @@ body{
 }
 .syoji2{
     position:relative;
-    top:-496px;
+    top:-700px;
     width: 400px;
     height: 100px;
 }
 .syoji3{
     position:relative;
-    top:-701px;
+    top:-700px;
     width: 400px;
     height: 100px;
 }
@@ -41,13 +41,13 @@ body{
 }
 .get2{
     position:relative;
-    top:-486px;
+    top:-700px;
     width: 400px;
     height: 100px;
 }
 .get3{
     position:relative;
-    top:-691px;
+    top:-700px;
     width: 400px;
     height: 100px;
 }
@@ -55,14 +55,7 @@ body{
 .tsuyosa{
     position:relative;
     top:-730px;
-    left:925px;
-    width: 580px;
-    height: 180px;
-}
-.tsuyosa2{
-    position:relative;
-    top:-932px;
-    left:925px;
+    left:34%;
     width: 580px;
     height: 180px;
 }

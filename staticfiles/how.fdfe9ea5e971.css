@@ -13,9 +13,8 @@ body{
 
 img.how{
     width:110%;
-    height:800px;
+    height:850px;
     margin-left:95px;
-    margin-top:5px;
 }
 .header {
   width: 100%;
@@ -24,7 +23,7 @@ img.how{
 }
 .btn-flat-vertical-border {
   position:relative;
-  top:0px;
+  top:-17px;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;
@@ -43,7 +42,7 @@ img.how{
 
 .btn-flat-vertical-border2 {
   position:relative;
-  top:0px;
+  top:-17px;
   display: inline-block;
   font-weight: bold;
   padding: 0.5em 1em;

@@ -1,0 +1,17 @@
+html,body{
+    overflow: hidden;
+}
+/*背景*/
+body{
+  background-color: #00EE00;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #00DD00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #00DD00), color-stop(.25, transparent), to(transparent)),
+                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #00DD00)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #00DD00));
+  -webkit-background-size:35px 35px;
+}
+
+.how{
+    width:1000px;
+    height:1000px;
+}

@@ -88,6 +88,16 @@
     <!--強さの画像-->
     <img src="{% static 'tsuyoi.png' %}" class="tsuyosa2" id="tsuyosa2" />
     
+    <!--ポイント-->
+    <p class="pt1" id="pt1"></p>
+    <p class="gpt1" id="gpt1"></p>
+    
+    <p class="pt2" id="pt2"></p>
+    <p class="gpt2" id="gpt2"></p>
+    
+    <p class="pt3" id="pt3"></p>
+    <p class="gpt3" id="gpt3"></p>
+    
     </body>
 </html>
 
@@ -386,34 +396,52 @@
     function syojiget1(){
       var s = document.getElementById("syoji1");
       var g = document.getElementById("get1");
+      var ppp1 = document.getElementById("pt1");
+      var ggg1 = document.getElementById("gpt1");
       if(s.style.display == "none"){
         s.style.display = "block";
         g.style.display = "block";
+        ppp1.style.display = "block";
+        ggg1.style.display = "block";
       }else{
         s.style.display = "none";
         g.style.display = "none";
+        ppp1.style.display = "none";
+        ggg1.style.display = "none";
       }
     }
     function syojiget2(){
       var sy = document.getElementById("syoji2");
       var ge = document.getElementById("get2");
+      var ppp2 = document.getElementById("pt2");
+      var ggg2 = document.getElementById("gpt2");
       if(sy.style.display == "none"){
         sy.style.display = "block";
         ge.style.display = "block";
+        ppp2.style.display = "block";
+        ggg2.style.display = "block";
       }else{
         sy.style.display = "none";
         ge.style.display = "none";
+        ppp2.style.display = "none";
+        ggg2.style.display = "none";
       }
     }
     function syojiget3(){
       var syy = document.getElementById("syoji3");
       var gee = document.getElementById("get3");
+      var ppp3 = document.getElementById("pt3");
+      var ggg3 = document.getElementById("gpt3");
       if(syy.style.display == "none"){
         syy.style.display = "block";
         gee.style.display = "block";
+        ppp3.style.display = "block";
+        ggg3.style.display = "block";
       }else{
         syy.style.display = "none";
         gee.style.display = "none";
+        ppp3.style.display = "none";
+        ggg3.style.display = "none";
       }
     }
 //ベットボタン(OK)を押したあとの処理
@@ -470,4 +498,15 @@ function modal_original(modalswitch){
     }
 
 }
+//ポイント処理
+var nowpoint = 1000;
+var getpoint = 0;
+document.getElementById("pt1").textContent = nowpoint;
+document.getElementById("gpt1").textContent = getpoint;
+document.getElementById("pt2").textContent = nowpoint;
+document.getElementById("gpt2").textContent = getpoint;
+document.getElementById("pt3").textContent = nowpoint;
+document.getElementById("gpt3").textContent = getpoint;
+
+
 </script>

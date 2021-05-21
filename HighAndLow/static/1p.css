@@ -51,6 +51,56 @@ body{
     width: 400px;
     height: 100px;
 }
+/*ポイント*/
+.pt1{
+    position:relative;
+    bottom:930px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+.gpt1{
+    position:relative;
+    bottom:924px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+.pt2{
+    position:relative;
+    bottom:903px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+.gpt2{
+    position:relative;
+    bottom:897px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+.pt3{
+    position:relative;
+    bottom:1105px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+.gpt3{
+    position:relative;
+    bottom:1099px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
+
 /*強さ画像*/
 .tsuyosa{
     position:relative;

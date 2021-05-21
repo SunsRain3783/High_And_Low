@@ -171,6 +171,7 @@
         syojiget3();//所持、獲得ポイント３の非表示
         tsuyosa1();//強さ画像１の非表示
         tsuyosa2();//強さ画像２の非表示
+        pointText();//ポイントを設置
         //modal_original('on');
     }
 //カードチェンジ
@@ -258,6 +259,8 @@
         tsuyosa2();//消える
         syojiget3();//消える
         syojiget1();//見える
+        getP();
+        loseP();
     }
 //ハイボタンを押したあとの処理
     function highFunc(){
@@ -287,11 +290,31 @@
         tsuyosa2();//見える
         syojiget2();//消える
         syojiget3();//見える
+        reward();
     }
 //失敗したあとの処理
     function lose(){
         //LOSE画像
-        setTimeout("mekuru(); changeNext(); changeDisplay5(); changeDisplay6(); changeDisplay7(); tsuyosa1(); syojiget2(); syojiget1();", 1000)
+        setTimeout("lose2();", 1000);
+        setTimeout("get1000P();",1001);
+    }
+    function lose2(){
+        mekuru();
+        changeNext();
+        changeDisplay5();
+        changeDisplay6();
+        changeDisplay7();
+        tsuyosa1();
+        syojiget2();
+        syojiget1();
+        loseP();
+    }
+    function get1000P(){
+        if(nowpoint === 0){
+            nowpoint = 1000;
+            alert("ポイントが0になったため1000ポイント付与しました");
+            pointText();
+        }
     }
 //ベットするボタンを押したあとの処理
     function betsuru(){
@@ -454,6 +477,8 @@
         syojiget1();//消える
         syojiget2();//見える
         modal_original("");
+        betP();
+        get100();
     }
 //成功失敗の判定
     function judg0(){
@@ -498,15 +523,44 @@ function modal_original(modalswitch){
     }
 
 }
-//ポイント処理
+//初期ポイント
 var nowpoint = 1000;
 var getpoint = 0;
-document.getElementById("pt1").textContent = nowpoint;
-document.getElementById("gpt1").textContent = getpoint;
-document.getElementById("pt2").textContent = nowpoint;
-document.getElementById("gpt2").textContent = getpoint;
-document.getElementById("pt3").textContent = nowpoint;
-document.getElementById("gpt3").textContent = getpoint;
+//ポイントの処理
+    function get100(){
+        getpoint = 100;
+        pointText();
+    }
+    function reward(){
+        getpoint += getpoint;//報酬倍率２倍
+        pointText();
+    }
+    function betP(){
+        nowpoint -= 100;
+        pointText();
+    }
+    function getP(){
+        nowpoint += getpoint;//ポイント獲得
+        pointText();
+    }
+    function loseP(){
+        getpoint = 0;//ポイント０
+        pointText();
+    }
+    function pointText(){
+        document.getElementById("pt1").textContent = nowpoint;
+        document.getElementById("gpt1").textContent = getpoint;
+        document.getElementById("pt2").textContent = nowpoint;
+        document.getElementById("gpt2").textContent = getpoint;
+        document.getElementById("pt3").textContent = nowpoint;
+        document.getElementById("gpt3").textContent = getpoint;
+    }
+
+
+
+
+
+
 
 
 </script>

@@ -233,7 +233,7 @@ img.aicon{
 .btn{
     display:block;
     text-decoration: none;
-    background:#FF722F;
+    background:#6A84FF;
     text-align:center;
     color:#FFFFFF;
     font-size:70px;
@@ -245,7 +245,7 @@ img.aicon{
     text-shadow:2px 2px 5px #000000 ;
 }
 .btn:hover{
-    background:#DC143C;
+    background:#5A62FF;
     color:#FFFFFF;
     box-shadow:none;
 }
@@ -259,7 +259,7 @@ img.aicon{
 .btn2{
     display:block;
     text-decoration: none;
-    background:#6A84FF;
+    background:#FF722F;
     text-align:center;
     color:#FFFFFF;
     font-size:70px;
@@ -271,7 +271,7 @@ img.aicon{
     text-shadow:2px 2px 5px #000000 ;
 }
 .btn2:hover{
-    background:#5A62FF;
+    background:#DC143C;
     color:#FFFFFF;
     box-shadow:none;
 } 

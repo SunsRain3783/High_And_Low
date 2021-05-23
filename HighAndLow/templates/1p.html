@@ -14,6 +14,7 @@
         <a href="/how" class="btn-flat-vertical-border2" style="left:37%;">遊び方</a>
     </div>
     <!--画像-->
+    <div id="main" >
     <div class="content">
       <img src="{% static 'HighAndLow_title.jpg' %}" class="img1" id="image" />
     </div>
@@ -27,8 +28,8 @@
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high" onclick="highFunc();" >▲ HIGH ▲</a>
-        <a href="#" class="btn2" id="low" onclick="lowFunc();" >▼ LOW ▼</a>
+        <a href="#" class="btn" id="high" onclick="highFunc();" >▼ LOW ▼</a>
+        <a href="#" class="btn2" id="low" onclick="lowFunc();" >▲ HIGH ▲</a>
     </div>
     
     <!--続けるやめるボタン-->
@@ -97,6 +98,12 @@
     
     <p class="pt3" id="pt3"></p>
     <p class="gpt3" id="gpt3"></p>
+    </div>
+    
+    <!--ショップ-->
+    <div id="sp" >
+        
+    </div>
     
     </body>
 </html>
@@ -172,6 +179,7 @@
         tsuyosa1();//強さ画像１の非表示
         tsuyosa2();//強さ画像２の非表示
         pointText();//ポイントを設置
+        shopbtn();//ショップの非表示
         //modal_original('on');
     }
 //カードチェンジ
@@ -556,9 +564,30 @@ var getpoint = 0;
         document.getElementById("gpt3").textContent = getpoint;
     }
 
+//メイン要素非表示
+    function main(){
+      var ma = document.getElementById("main");
+      if(ma.style.display == "none"){
+        ma.style.display = "block";
+      }else{
+        ma.style.display = "none";
+      }
+    }
+//ショップ非表示
+    function shopbtn(){
+      var sh = document.getElementById("sp");
+      if(sh.style.display == "none"){
+        sh.style.display = "block";
+      }else{
+        sh.style.display = "none";
+      }
+    }
 
-
-
+//ショップの処理
+    function shop(){
+        main();
+        shopbtn();
+    }
 
 
 

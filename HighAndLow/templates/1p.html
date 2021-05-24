@@ -28,8 +28,8 @@
     
     <!--ハイアンドローボタン-->
     <div class="highbtn">
-        <a href="#" class="btn" id="high" onclick="highFunc();" >▼ LOW ▼</a>
-        <a href="#" class="btn2" id="low" onclick="lowFunc();" >▲ HIGH ▲</a>
+        <a href="#" class="btn" id="low" onclick="lowFunc();" >▼ LOW ▼</a>
+        <a href="#" class="btn2" id="high" onclick="highFunc();" >▲ HIGH ▲</a>
     </div>
     
     <!--続けるやめるボタン-->
@@ -103,16 +103,23 @@
     <!--ショップ-->
     <div id="sp" >
         <table>
-            <tr><div><p align="left" class="sample-box-1" ><font size=5px>「スキップシューズ」　１度だけ親のカードを変えることができる</font></p>
-            <img src="{% static 'スキップシューズ.png' %}" class="skip" id="skip" /></div>
+            <tr>
+            <div><p align="left" class="sample-box-1" ><font size=5px>「スキップシューズ」　１度だけ親のカードを変えることができる</font></p>
+            <img src="{% static 'スキップシューズ.png' %}" class="skip" id="skip" />
+            <a href="#" class="btn-gradient-3d-simple1"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-2" ><font size=5px>「フリップグローブ」　１度だけ子のカードをめくることができる</font></p>
-            <img src="{% static 'フリップグローブ.png' %}" class="flip" id="flip" /></div>
+            <img src="{% static 'フリップグローブ.png' %}" class="flip" id="flip" />
+            <a href="#" class="btn-gradient-3d-simple2"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-3" ><font size=5px>「ハイヤースイッチ」　１度だけ子のカードの出目を9,10,11,12,13,1のいずれかにする</font></p>
-            <img src="{% static 'ハイヤースイッチ.png' %}" class="higher" id="higher" /></div>
+            <img src="{% static 'ハイヤースイッチ.png' %}" class="higher" id="higher" />
+            <a href="#" class="btn-gradient-3d-simple3"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-4" ><font size=5px>「ロワースイッチ」　　１度だけ子のカードの出目を2,3,4,5,6,7のいずれかにする</font></p>
-            <img src="{% static 'ロワースイッチ.png' %}" class="lower" id="lower" /></div>
+            <img src="{% static 'ロワースイッチ.png' %}" class="lower" id="lower" />
+            <a href="#" class="btn-gradient-3d-simple4"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-5" ><font size=5px>「報酬倍率３倍」　　　報酬倍率が常に３倍になる</font></p>
-            <img src="{% static '倍率アップ.png' %}" class="up" id="up" /></tr></div>
+            <img src="{% static '倍率アップ.png' %}" class="up" id="up" />
+            <a href="#" class="btn-gradient-3d-simple5"><font size="5px">BUTTON</font></a></div>
+            <div><a href="#" class="btn-real">戻</a></div></tr>
         </table>
     </div>
     

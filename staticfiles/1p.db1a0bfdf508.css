@@ -136,7 +136,7 @@ img.up{
 }
 .btn-gradient-3d-simple3 {
   position:relative;
-  bottom:567px;
+  bottom:577px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -153,7 +153,7 @@ img.up{
 }
 .btn-gradient-3d-simple4 {
   position:relative;
-  bottom:724px;
+  bottom:715px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -170,8 +170,8 @@ img.up{
 }
 .btn-gradient-3d-simple5 {
   position:relative;
-  bottom:908px;
-  left:1205px;
+  bottom:948px;
+  left:1330px;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -188,13 +188,12 @@ img.up{
 
 .btn-real {
   position:relative;
-  bottom:1650px;
-  left:30px;
+  bottom:1000px;
   display: inline-block;
   text-decoration: none;
   color: rgba(152, 152, 152, 0.43);/*アイコン色*/
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   line-height: 80px;
   font-size: 40px;
   border-radius: 50%;

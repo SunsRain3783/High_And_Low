@@ -11,7 +11,93 @@ body{
                     -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #00DD00));
   -webkit-background-size:35px 35px;
 }
-
+/*ショップ*/
+img.skip{
+    position:relative;
+    width:150px;
+    height:150px;
+    bottom:170px;
+}
+img.flip{
+    position:relative;
+    width:150px;
+    height:150px;
+    bottom:360px;
+}
+img.higher{
+    position:relative;
+    width:100px;
+    height:100px;
+    bottom:520px;
+    left:23px;
+}
+img.lower{
+    position:relative;
+    width:100px;
+    height:100px;
+    bottom:660px;
+    left:23px;
+}
+img.up{
+    position:relative;
+    width:120px;
+    height:120px;
+    bottom:805px;
+    left:15px;
+}
+.sample-box-1 {
+    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 1px solid #ccc;
+    border-top: 4px solid #1c66fe;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    margin: 2em 0;
+    padding: 40px 200px;
+}
+.sample-box-2 {
+    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 1px solid #ccc;
+    border-top: 4px solid #1c66fe;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    margin: 2em 0;
+    padding: 40px 200px;
+    position:relative;
+    bottom:190px;
+}
+.sample-box-3 {
+    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 1px solid #ccc;
+    border-top: 4px solid #1c66fe;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    margin: 2em 0;
+    padding: 40px 200px;
+    position:relative;
+    bottom:380px;
+}
+.sample-box-4 {
+    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 1px solid #ccc;
+    border-top: 4px solid #1c66fe;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    margin: 2em 0;
+    padding: 40px 200px;
+    position:relative;
+    bottom:520px;
+}
+.sample-box-5 {
+    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
+    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
+    border: 1px solid #ccc;
+    border-top: 4px solid #1c66fe;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
+    margin: 2em 0;
+    padding: 40px 200px;
+    position:relative;
+    bottom:660px;
+}
 
 /*所持ポイント画像*/
 .syoji1{

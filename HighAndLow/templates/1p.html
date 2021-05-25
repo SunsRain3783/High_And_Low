@@ -105,21 +105,21 @@
         <table>
             <tr>
             <div><p align="left" class="sample-box-1" ><font size=5px>「スキップシューズ」　１度だけ親のカードを変えることができる</font></p>
-            <img src="{% static 'スキップシューズ.png' %}" class="skip" id="skip" />
-            <a href="#" class="btn-gradient-3d-simple1"><font size="5px">BUTTON</font></a></div>
+            <img src="{% static 'スキップシューズ.png' %}" class="skip"/>
+            <a href="#" class="btn-gradient-3d-simple1" id="skip" onclick="skipFunc();"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-2" ><font size=5px>「フリップグローブ」　１度だけ子のカードをめくることができる</font></p>
-            <img src="{% static 'フリップグローブ.png' %}" class="flip" id="flip" />
-            <a href="#" class="btn-gradient-3d-simple2"><font size="5px">BUTTON</font></a></div>
+            <img src="{% static 'フリップグローブ.png' %}" class="flip"/>
+            <a href="#" class="btn-gradient-3d-simple2" id="flip" onclick="flipFunc();"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-3" ><font size=5px>「ハイヤースイッチ」　１度だけ子のカードの出目を9,10,11,12,13,1のいずれかにする</font></p>
-            <img src="{% static 'ハイヤースイッチ.png' %}" class="higher" id="higher" />
-            <a href="#" class="btn-gradient-3d-simple3"><font size="5px">BUTTON</font></a></div>
+            <img src="{% static 'ハイヤースイッチ.png' %}" class="higher"/>
+            <a href="#" class="btn-gradient-3d-simple3" id="higher" onclick="higherFunc();"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-4" ><font size=5px>「ロワースイッチ」　　１度だけ子のカードの出目を2,3,4,5,6,7のいずれかにする</font></p>
-            <img src="{% static 'ロワースイッチ.png' %}" class="lower" id="lower" />
-            <a href="#" class="btn-gradient-3d-simple4"><font size="5px">BUTTON</font></a></div>
+            <img src="{% static 'ロワースイッチ.png' %}" class="lower"/>
+            <a href="#" class="btn-gradient-3d-simple4" id="lower" onclick="lowerFunc();"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-5" ><font size=5px>「報酬倍率３倍」　　　報酬倍率が常に３倍になる</font></p>
-            <img src="{% static '倍率アップ.png' %}" class="up" id="up" />
-            <a href="#" class="btn-gradient-3d-simple5"><font size="5px">BUTTON</font></a></div>
-            <div><a href="#" class="btn-real">戻</a></div></tr>
+            <img src="{% static '倍率アップ.png' %}" class="up"/>
+            <a href="#" class="btn-gradient-3d-simple5" id="up" onclick="upFunc();"><font size="5px">BUTTON</font></a></div>
+            <div><a href="#" class="btn-real" onclick="backhome();">戻</a></div></tr>
         </table>
     </div>
     
@@ -601,12 +601,81 @@ var getpoint = 0;
       }
     }
 
-//ショップの処理
+//ショップボタンの処理
     function shop(){
         main();
         shopbtn();
+        varueText();
     }
 
+//戻るボタンの処理
+    function backhome(){
+        shopbtn();
+        main();
+    }
+//アイテム購入の処理
+var sct = 0;
+var fct = 0;
+var hct = 0;
+var lct = 0;
+var uct = 0;
+var skip = "5,000P (0/10)";
+var flip = "20,000P (0/10)";
+var higher = "10,000P (0/5)";
+var lower = "10,000P (0/5)";
+var up = "  1,000,000P  ";
+    function skipFunc(){
+        if(sct < 10 && nowpoint-5000 > 0){
+            nowpoint -= 5000;
+            pointText();
+            sct += 1;
+            skip = "5,000P (" + sct + "/10)"
+            varueText();
+        }
+    }
+    function flipFunc(){
+        if(fct < 10 && nowpoint-20000 > 0){
+            nowpoint -= 20000;
+            pointText();
+            fct += 1;
+            flip = "20,000P (" + fct + "/10)"
+            varueText();
+        }
+    }
+    function higherFunc(){
+        if(hct < 5 && nowpoint-10000 > 0){
+            nowpoint -= 10000;
+            pointText();
+            hct += 1;
+            higher = "10,000P (" + hct + "/5)"
+            varueText();
+        }
+    }
+    function lowerFunc(){
+        if(lct < 5 && nowpoint-10000 > 0){
+            nowpoint -= 10000;
+            pointText();
+            lct += 1;
+            lower = "10,000P (" + lct + "/5)"
+            varueText();
+        }
+    }
+    function upFunc(){
+        if(uct < 1 && nowpoint-1000000 > 0){
+            nowpoint -= 1000000;
+            pointText();
+            uct += 1;
+            up = "購入済み"
+            varueText();
+        }
+    }
+    function varueText(){
+        document.getElementById("skip").textContent = skip;
+        document.getElementById("flip").textContent = flip;
+        document.getElementById("higher").textContent = higher;
+        document.getElementById("lower").textContent = lower;
+        document.getElementById("up").textContent = up;
+    }
 
 
 

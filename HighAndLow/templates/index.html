@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="{% static 'index.css' %}">
     </head>
     <body><!--ここから中身-->
+    
+    <div class="wrap">
     <!--背景-->
     <div class="bg"></div>
     <div class="bg bg2"></div>
@@ -14,9 +16,37 @@
       <img src="{% static 'HighAndLow_title.jpg' %}" class="img1" />
     </div>
     <!--ボタン-->
-    <font size="5"><a href="/1p" class="cp_btn" style="left: 35%;">一人で遊ぶ</a></font>
+    <font size="5"><a href="/1p" class="cp_btn" style="left: 37%;">一人で遊ぶ</a></font>
     <font size="5"><a href="/2p" class="cp_btn2" style="left: 52%;">二人で遊ぶ</a></font>
-    <font size="5"><a href="/how" class="cp_btn3" style="left: 43.5%;">遊び方</a></font>
+    <font size="5"><a href="/how" class="cp_btn3" style="left: 44.5%;">遊び方</a></font>
+    </div>
     
     </body>
 </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const resizeFix = function () {
+        const checkHeight = window.innerWidth / 1920 * 1080;
+        const marginTop = window.innerHeight - checkHeight;
+        const checkWidth = window.innerHeight / 1080 * 1920;
+        const marginLeft = window.innerWidth - checkWidth;
+
+        if (checkHeight > window.innerHeight) { //
+            document.getElementsByClassName('wrap')[0].style.transform = 'scale(' + window.innerHeight / 1080 + ')';
+            document.getElementsByClassName('wrap')[0].style.marginLeft = marginLeft / 2 + 'px';
+            document.getElementsByClassName('wrap')[0].style.marginTop = 0 + 'px';
+        } else {
+            document.getElementsByClassName('wrap')[0].style.transform = 'scale(' + window.innerWidth / 1920 + ')';
+            document.getElementsByClassName('wrap')[0].style.marginLeft = 0 + 'px';
+            document.getElementsByClassName('wrap')[0].style.marginTop = marginTop / 2 + 'px';
+        }
+    }
+
+    resizeFix();
+
+    window.addEventListener('resize', function () {
+        resizeFix();
+    });
+});
+</script>

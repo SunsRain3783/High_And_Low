@@ -6,6 +6,16 @@ html {
 body {
   margin:0;
 }
+html,body{
+    overflow: hidden;
+}
+
+.wrap {
+    height: 1080px;
+    width: 1920px;
+    position: absolute;
+    transform-origin: 0% 0%;
+}
 
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
@@ -46,8 +56,8 @@ body {
 }
 /*画像*/
 img.img1 {
-width: 800px;
-height: 500px;
+width: 90%;
+height: 60%;
 }
 
 /*h1 {
@@ -58,8 +68,8 @@ height: 500px;
 a.cp_btn {
 	display: block;
 	position: relative;
-	top: 580px;
-　  left: 50%;
+	top: 680px;
+　  left: 52%;
 	width: 160px;
 	padding: 0.8em;
 	text-align: center;
@@ -98,7 +108,7 @@ a.cp_btn:active:after {
 a.cp_btn2 {
 	display: block;
 	position: relative;
-	top: 504px;
+	top: 604px;
 　  left: 50%;
 	width: 160px;
 	padding: 0.8em;
@@ -138,8 +148,8 @@ a.cp_btn2:active:after {
 a.cp_btn3 {
 	display: block;
 	position: relative;
-	top: 550px;
-　  left: 50%;
+	top: 660px;
+　  left: 52%;
 	width: 160px;
 	padding: 0.8em;
 	text-align: center;
@@ -164,7 +174,7 @@ a.cp_btn3:after {
 	z-index: -1;
 }
 a.cp_btn3:hover {
-	color: #4689FF;
+	color: #FF8C00;
 }
 a.cp_btn3:hover:after {
 	height: 250%;

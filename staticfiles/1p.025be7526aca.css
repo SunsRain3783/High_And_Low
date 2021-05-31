@@ -2,8 +2,8 @@ html,body{
     overflow: hidden;
 }
 .wrap {
-    height: 2750px;
-    width: 1500px;
+    height: 5000px;
+    width: 2500px;
     position: absolute;
     transform-origin: 0% 0%;
 }

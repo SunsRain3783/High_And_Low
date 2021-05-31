@@ -5,12 +5,40 @@
         <link rel="stylesheet" href="{% static 'how.css' %}">
     </head>
     <body><!--ここから中身-->
+    <div class="wrap">
     <div class="header">
         <a href="/" class="btn-flat-vertical-border">トップページ</a>
         <a href="/1p" class="btn-flat-vertical-border2" style="left:81.7%;">１人でプレイ</a>
     </div>
     <img src="{% static 'how.png' %}" class="how"/>
     
-    
+    </div>
     </body>
 </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const resizeFix = function () {
+        const checkHeight = window.innerWidth / 2750 * 1500;
+        const marginTop = window.innerHeight - checkHeight;
+        const checkWidth = window.innerHeight / 1500 * 2750;
+        const marginLeft = window.innerWidth - checkWidth;
+
+        if (checkHeight > window.innerHeight) { //
+            document.getElementsByClassName('wrap')[0].style.transform = 'scale(' + window.innerHeight / 2750 + ')';
+            document.getElementsByClassName('wrap')[0].style.marginLeft = marginLeft / 2 + 'px';
+            document.getElementsByClassName('wrap')[0].style.marginTop = 0 + 'px';
+        } else {
+            document.getElementsByClassName('wrap')[0].style.transform = 'scale(' + window.innerWidth / 1500 + ')';
+            document.getElementsByClassName('wrap')[0].style.marginLeft = 0 + 'px';
+            document.getElementsByClassName('wrap')[0].style.marginTop = marginTop / 2 + 'px';
+        }
+    }
+
+    resizeFix();
+
+    window.addEventListener('resize', function () {
+        resizeFix();
+    });
+});
+</script>

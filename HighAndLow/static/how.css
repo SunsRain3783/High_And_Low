@@ -1,6 +1,12 @@
 html,body{
     overflow: hidden;
 }
+.wrap {
+    height: 2750px;
+    width: 1500px;
+    position: absolute;
+    transform-origin: 0% 0%;
+}
 /*背景*/
 body{
   background-color: #00EE00;
@@ -13,7 +19,7 @@ body{
 
 img.how{
     width:110%;
-    height:800px;
+    height:750px;
     margin-left:95px;
     margin-top:5px;
 }

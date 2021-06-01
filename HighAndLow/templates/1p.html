@@ -103,6 +103,8 @@
     
     <!--ショップ-->
     <div id="sp" >
+        <div><img src="{% static 'syoji.png' %}" class="syoji4" id="syoji4" /></div>
+        <p class="pt4" id="pt4"></p>
         <table>
             <tr>
             <div><p align="left" class="sample-box-1" ><font size=5px>「スキップシューズ」　１度だけ親のカードを変えることができる</font></p>
@@ -349,6 +351,7 @@
     function betsuru(){
         changeDisplay5();
         changeDisplay4();
+        syojiget1();
         modal_original('on');
     }
 //表示非表示
@@ -503,7 +506,6 @@
         changeDisplay6();
         changeDisplay7();
         tsuyosa1();//見える
-        syojiget1();//消える
         syojiget2();//見える
         modal_original("");
         betP();
@@ -583,6 +585,7 @@ var getpoint = 0;
         document.getElementById("gpt2").textContent = getpoint;
         document.getElementById("pt3").textContent = nowpoint;
         document.getElementById("gpt3").textContent = getpoint;
+        document.getElementById("pt4").textContent = nowpoint;
     }
 
 //メイン要素非表示

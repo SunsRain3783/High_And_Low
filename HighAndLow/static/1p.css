@@ -21,33 +21,33 @@ img.skip{
     position:relative;
     width:150px;
     height:150px;
-    bottom:130px;
+    bottom:300px;
 }
 img.flip{
     position:relative;
     width:150px;
     height:150px;
-    bottom:332px;
+    bottom:512px;
 }
 img.higher{
     position:relative;
     width:100px;
     height:100px;
-    bottom:522px;
+    bottom:712px;
     left:23px;
 }
 img.lower{
     position:relative;
     width:100px;
     height:100px;
-    bottom:680px;
+    bottom:880px;
     left:23px;
 }
 img.up{
     position:relative;
     width:120px;
     height:120px;
-    bottom:848px;
+    bottom:1058px;
     left:10px;
 }
 .sample-box-1 {
@@ -59,7 +59,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    top:40px;
+    bottom:130px;
 }
 .sample-box-2 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -70,7 +70,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:172px;
+    bottom:352px;
 }
 .sample-box-3 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -81,7 +81,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:382px;
+    bottom:572px;
 }
 .sample-box-4 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -92,7 +92,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:540px;
+    bottom:740px;
 }
 .sample-box-5 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -103,11 +103,11 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:703px;
+    bottom:913px;
 }
 .btn-gradient-3d-simple1 {
   position:relative;
-  bottom:196px;
+  bottom:366px;
   left:1180px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -124,7 +124,7 @@ img.up{
 }
 .btn-gradient-3d-simple2 {
   position:relative;
-  bottom:407px;
+  bottom:587px;
   left:1180px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -141,7 +141,7 @@ img.up{
 }
 .btn-gradient-3d-simple3 {
   position:relative;
-  bottom:567px;
+  bottom:757px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -158,7 +158,7 @@ img.up{
 }
 .btn-gradient-3d-simple4 {
   position:relative;
-  bottom:724px;
+  bottom:924px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -175,7 +175,7 @@ img.up{
 }
 .btn-gradient-3d-simple5 {
   position:relative;
-  bottom:908px;
+  bottom:1118px;
   left:1205px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -193,8 +193,8 @@ img.up{
 
 .btn-real {
   position:relative;
-  bottom:1635px;
-  left:30px;
+  bottom:1825px;
+  left:450px;
   display: inline-block;
   text-decoration: none;
   color: rgba(152, 152, 152, 0.43);/*アイコン色*/
@@ -238,6 +238,12 @@ img.up{
     top:-701px;
     width: 400px;
     height: 100px;
+}
+.syoji4{
+    position:relative;
+    top:20px;
+    width: 400px;
+    height: 80px;
 }
 /*獲得ポイント画像*/
 .get1{
@@ -307,7 +313,14 @@ img.up{
     text-align:right;
     width:290px;
 }
-
+.pt4{
+    position:relative;
+    bottom:90px;
+    left:0px;
+    font-size:45px;
+    text-align:right;
+    width:290px;
+}
 /*強さ画像*/
 .tsuyosa{
     position:relative;

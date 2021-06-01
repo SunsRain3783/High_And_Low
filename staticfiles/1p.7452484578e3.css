@@ -21,33 +21,33 @@ img.skip{
     position:relative;
     width:150px;
     height:150px;
-    bottom:300px;
+    bottom:130px;
 }
 img.flip{
     position:relative;
     width:150px;
     height:150px;
-    bottom:512px;
+    bottom:332px;
 }
 img.higher{
     position:relative;
     width:100px;
     height:100px;
-    bottom:712px;
+    bottom:522px;
     left:23px;
 }
 img.lower{
     position:relative;
     width:100px;
     height:100px;
-    bottom:880px;
+    bottom:680px;
     left:23px;
 }
 img.up{
     position:relative;
     width:120px;
     height:120px;
-    bottom:1058px;
+    bottom:848px;
     left:10px;
 }
 .sample-box-1 {
@@ -59,7 +59,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:130px;
+    top:40px;
 }
 .sample-box-2 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -70,7 +70,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:352px;
+    bottom:172px;
 }
 .sample-box-3 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -81,7 +81,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:572px;
+    bottom:382px;
 }
 .sample-box-4 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -92,7 +92,7 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:740px;
+    bottom:540px;
 }
 .sample-box-5 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -103,11 +103,11 @@ img.up{
     margin: 2em 0;
     padding: 40px 200px;
     position:relative;
-    bottom:913px;
+    bottom:703px;
 }
 .btn-gradient-3d-simple1 {
   position:relative;
-  bottom:366px;
+  bottom:196px;
   left:1180px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -124,7 +124,7 @@ img.up{
 }
 .btn-gradient-3d-simple2 {
   position:relative;
-  bottom:587px;
+  bottom:407px;
   left:1180px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -141,7 +141,7 @@ img.up{
 }
 .btn-gradient-3d-simple3 {
   position:relative;
-  bottom:757px;
+  bottom:567px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -158,7 +158,7 @@ img.up{
 }
 .btn-gradient-3d-simple4 {
   position:relative;
-  bottom:924px;
+  bottom:724px;
   left:1227px;
   display: inline-block;
   padding: 0.5em 1em;
@@ -175,7 +175,7 @@ img.up{
 }
 .btn-gradient-3d-simple5 {
   position:relative;
-  bottom:1118px;
+  bottom:908px;
   left:1205px;
   display: inline-block;
   padding: 0.5em 1em;

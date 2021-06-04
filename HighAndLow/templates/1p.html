@@ -138,12 +138,6 @@
                 <input type="image" src="{% static 'ロワースイッチ.png' %}" alt="ロワー" class="lowerbtn" id="item4" onclick="lowerFunc2();">
             </div>
         </table>
-            <div>
-                <p class="item1" id="item1"></p>
-                <p class="item2" id="item2"></p>
-                <p class="item3" id="item3"></p>
-                <p class="item4" id="item4"></p>
-            </div>
     </div>
     
     </div>
@@ -223,6 +217,7 @@
         itemBtn();//アイテムボタンの非表示
         pointText();//ポイントを設置
         shopbtn();//ショップの非表示
+        itemSrc();//アイテムボタンの表示
         //modal_original('on');
     }
 //カードチェンジ
@@ -297,6 +292,7 @@
         tsuyosa1();//見える
         syojiget3();//消える
         syojiget2();//見える
+        itemBtn();//見える
     }
 //やめるボタンを押したあとの処理(ポイントの獲得?)
     function stopFunc(){
@@ -310,7 +306,6 @@
         tsuyosa2();//消える
         syojiget3();//消える
         syojiget1();//見える
-        itemBtn();
         getP();
         loseP();
     }
@@ -338,6 +333,7 @@
     function win(){
         //WIN画像
         changeDisplay2();//続けるやめるボタンがでてくる
+        itemBtn();//消える
         tsuyosa1();//消える
         tsuyosa2();//見える
         syojiget2();//消える
@@ -538,7 +534,6 @@
         tsuyosa1();//見える
         syojiget2();//見える
         itemBtn();
-        itemText();//アイテムの個数を設置
         modal_original("");
         betP();
         get100();
@@ -651,6 +646,19 @@ var getpoint = 0;
         shopbtn();
         main();
     }
+//アイテムボタンの画像配列
+var skipSrcs=["{% static 'スキップシューズ0.png' %}","{% static 'スキップシューズ1.png' %}","{% static 'スキップシューズ2.png' %}",
+                "{% static 'スキップシューズ3.png' %}","{% static 'スキップシューズ4.png' %}","{% static 'スキップシューズ5.png' %}",
+                "{% static 'スキップシューズ6.png' %}","{% static 'スキップシューズ7.png' %}","{% static 'スキップシューズ8.png' %}",
+                "{% static 'スキップシューズ9.png' %}","{% static 'スキップシューズ10.png' %}"]
+var flipSrcs=["{% static 'フリップグローブ0.png' %}","{% static 'フリップグローブ1.png' %}","{% static 'フリップグローブ2.png' %}",
+                "{% static 'フリップグローブ3.png' %}","{% static 'フリップグローブ4.png' %}","{% static 'フリップグローブ5.png' %}",
+                "{% static 'フリップグローブ6.png' %}","{% static 'フリップグローブ7.png' %}","{% static 'フリップグローブ8.png' %}",
+                "{% static 'フリップグローブ9.png' %}","{% static 'フリップグローブ10.png' %}"]
+var higherSrcs=["{% static 'ハイヤースイッチ0.png' %}","{% static 'ハイヤースイッチ1.png' %}","{% static 'ハイヤースイッチ2.png' %}",
+                "{% static 'ハイヤースイッチ3.png' %}","{% static 'ハイヤースイッチ4.png' %}","{% static 'ハイヤースイッチ5.png' %}"]
+var lowerSrcs=["{% static 'ロワースイッチ0.png' %}","{% static 'ロワースイッチ1.png' %}","{% static 'ロワースイッチ2.png' %}",
+                "{% static 'ロワースイッチ3.png' %}","{% static 'ロワースイッチ4.png' %}","{% static 'ロワースイッチ5.png' %}"]
 //アイテム購入の処理
 var sct = 0;
 var fct = 0;
@@ -662,50 +670,58 @@ var flip = "20,000P (0/10)";
 var higher = "10,000P (0/5)";
 var lower = "10,000P (0/5)";
 var up = "  1,000,000P  ";
+var skipSrc=skipSrcs[0];
+var flipSrc=flipSrcs[0];
+var higherSrc=higherSrcs[0];
+var lowerSrc=lowerSrcs[0];
     function skipFunc(){
-        if(sct < 10 && nowpoint-5000 > 0){
-            nowpoint -= 5000;
+        if(sct < 10 && nowpoint-50 > 0){
+            nowpoint -= 50;
             pointText();
             sct += 1;
             skip = "5,000P (" + sct + "/10)"
             varueText();
-            itemText();
+            skipSrc=skipSrcs[sct];
+            itemSrc();
         }
     }
     function flipFunc(){
-        if(fct < 10 && nowpoint-20000 > 0){
-            nowpoint -= 20000;
+        if(fct < 10 && nowpoint-20 > 0){
+            nowpoint -= 20;
             pointText();
             fct += 1;
             flip = "20,000P (" + fct + "/10)"
             varueText();
-            itemText();
+            flipSrc=flipSrcs[fct];
+            itemSrc();
         }
     }
     function higherFunc(){
-        if(hct < 5 && nowpoint-10000 > 0){
-            nowpoint -= 10000;
+        if(hct < 5 && nowpoint-10 > 0){
+            nowpoint -= 10;
             pointText();
             hct += 1;
             higher = "10,000P (" + hct + "/5)"
             varueText();
-            itemText();
+            higherSrc=higherSrcs[hct];
+            itemSrc();
         }
     }
     function lowerFunc(){
-        if(lct < 5 && nowpoint-10000 > 0){
-            nowpoint -= 10000;
+        if(lct < 5 && nowpoint-10 > 0){
+            nowpoint -= 10;
             pointText();
             lct += 1;
             lower = "10,000P (" + lct + "/5)"
             varueText();
-            itemText();
+            lowerSrc=lowerSrcs[lct];
+            itemSrc();
         }
     }
     function upFunc(){
-        if(uct < 1 && nowpoint-1000000 > 0){
+        if(uct < 1 && nowpoint-1000 > 0){
             Up();
-            nowpoint -= 1000000;
+            nowpoint -= 1000;
             pointText();
             uct += 1;
             up = "購入済み"
@@ -719,6 +735,7 @@ var up = "  1,000,000P  ";
         document.getElementById("lower").textContent = lower;
         document.getElementById("up").textContent = up;
     }
+    
 //アイテムボタンの処理
     function skipFunc2(){
         if(sct > 0){
@@ -726,7 +743,8 @@ var up = "  1,000,000P  ";
             sct -= 1;
             skip = "5,000P (" + sct + "/10)"
             varueText();
-            itemText();
+            skipSrc=skipSrcs[sct];
+            itemSrc();
         }
     }
     function flipFunc2(){
@@ -735,7 +753,8 @@ var up = "  1,000,000P  ";
             fct -= 1;
             flip = "20,000P (" + fct + "/10)"
             varueText();
-            itemText();
+            flipSrc=flipSrcs[fct];
+            itemSrc();
         }
     }
     function higherFunc2(){
@@ -744,7 +763,8 @@ var up = "  1,000,000P  ";
             hct -= 1;
             higher = "10,000P (" + hct + "/5)"
             varueText();
-            itemText();
+            higherSrc=higherSrcs[hct];
+            itemSrc();
         }
     }
     function lowerFunc2(){
@@ -753,14 +773,15 @@ var up = "  1,000,000P  ";
             lct -= 1;
             lower = "10,000P (" + lct + "/5)"
             varueText();
-            itemText();
+            lowerSrc=lowerSrcs[lct];
+            itemSrc();
         }
     }
-    function itemText(){//なぜか反映されない。。。
-        document.getElementById("item1").textContent = "aaaaaaa";
-        document.getElementById("item2").textContent = fct;
-        document.getElementById("item3").textContent = hct;
-        document.getElementById("item4").textContent = lct;
+    function itemSrc(){
+        document.getElementById("item1").src = skipSrc;
+        document.getElementById("item2").src = flipSrc;
+        document.getElementById("item3").src = higherSrc;
+        document.getElementById("item4").src = lowerSrc;
     }
     function Skip(){
         

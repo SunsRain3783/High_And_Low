@@ -3,7 +3,7 @@ html,body{
 }
 .wrap {
     height: 2750px;
-    width: 1520px;
+    width: 1450px;
     position: absolute;
     transform-origin: 0% 0%;
 }
@@ -361,14 +361,14 @@ img.up{
     position:relative;
     top:-730px;
     left:925px;
-    width: 550px;
+    width: 580px;
     height: 180px;
 }
 .tsuyosa2{
     position:relative;
     top:-932px;
     left:925px;
-    width: 550px;
+    width: 580px;
     height: 180px;
 }
 

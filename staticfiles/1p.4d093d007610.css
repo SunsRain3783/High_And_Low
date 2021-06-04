@@ -52,7 +52,7 @@ img.up{
 }
 .item1{
     position:relative;
-    top:930px;
+    bottom:930px;
     left:0px;
     font-size:45px;
     text-align:right;

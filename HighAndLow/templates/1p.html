@@ -126,6 +126,25 @@
         </table>
     </div>
     
+    <!--アイテムボタン-->
+    <div id="item">
+        <table>
+            <div>
+                <input type="image" src="{% static 'スキップシューズ.png' %}" alt="スキップ" class="skipbtn" id="item1" onclick="skipFunc2();">
+                <input type="image" src="{% static 'フリップグローブ.png' %}" alt="フリップ" class="flipbtn" id="item2" onclick="flipFunc2();">
+            </div>
+            <div>
+                <input type="image" src="{% static 'ハイヤースイッチ.png' %}" alt="ハイヤー" class="higherbtn" id="item3" onclick="higherFunc2();">
+                <input type="image" src="{% static 'ロワースイッチ.png' %}" alt="ロワー" class="lowerbtn" id="item4" onclick="lowerFunc2();">
+            </div>
+        </table>
+            <div>
+                <p class="item1" id="item1"></p>
+                <p class="item2" id="item2"></p>
+                <p class="item3" id="item3"></p>
+                <p class="item4" id="item4"></p>
+            </div>
+    </div>
     
     </div>
     </body>
@@ -201,6 +220,7 @@
         syojiget3();//所持、獲得ポイント３の非表示
         tsuyosa1();//強さ画像１の非表示
         tsuyosa2();//強さ画像２の非表示
+        itemBtn();//アイテムボタンの非表示
         pointText();//ポイントを設置
         shopbtn();//ショップの非表示
         //modal_original('on');
@@ -290,6 +310,7 @@
         tsuyosa2();//消える
         syojiget3();//消える
         syojiget1();//見える
+        itemBtn();
         getP();
         loseP();
     }
@@ -338,6 +359,7 @@
         tsuyosa1();
         syojiget2();
         syojiget1();
+        itemBtn();
         loseP();
     }
     function get1000P(){
@@ -499,6 +521,14 @@
         ggg3.style.display = "none";
       }
     }
+    function itemBtn(){//アイテムボタン
+      var ib = document.getElementById("item");
+      if(ib.style.display == "none"){
+        ib.style.display = "block";
+      }else{
+        ib.style.display = "none";
+      }
+    }
 //ベットボタン(OK)を押したあとの処理
     function betOK(){
         changeDisplay4();
@@ -507,6 +537,8 @@
         changeDisplay7();
         tsuyosa1();//見える
         syojiget2();//見える
+        itemBtn();
+        itemText();//アイテムの個数を設置
         modal_original("");
         betP();
         get100();
@@ -637,6 +669,7 @@ var up = "  1,000,000P  ";
             sct += 1;
             skip = "5,000P (" + sct + "/10)"
             varueText();
+            itemText();
         }
     }
     function flipFunc(){
@@ -646,6 +679,7 @@ var up = "  1,000,000P  ";
             fct += 1;
             flip = "20,000P (" + fct + "/10)"
             varueText();
+            itemText();
         }
     }
     function higherFunc(){
@@ -655,6 +689,7 @@ var up = "  1,000,000P  ";
             hct += 1;
             higher = "10,000P (" + hct + "/5)"
             varueText();
+            itemText();
         }
     }
     function lowerFunc(){
@@ -664,10 +699,12 @@ var up = "  1,000,000P  ";
             lct += 1;
             lower = "10,000P (" + lct + "/5)"
             varueText();
+            itemText();
         }
     }
     function upFunc(){
         if(uct < 1 && nowpoint-1000000 > 0){
+            Up();
             nowpoint -= 1000000;
             pointText();
             uct += 1;
@@ -681,6 +718,64 @@ var up = "  1,000,000P  ";
         document.getElementById("higher").textContent = higher;
         document.getElementById("lower").textContent = lower;
         document.getElementById("up").textContent = up;
+    }
+//アイテムボタンの処理
+    function skipFunc2(){
+        if(sct > 0){
+            Skip();
+            sct -= 1;
+            skip = "5,000P (" + sct + "/10)"
+            varueText();
+            itemText();
+        }
+    }
+    function flipFunc2(){
+        if(fct > 0){
+            Flip();
+            fct -= 1;
+            flip = "20,000P (" + fct + "/10)"
+            varueText();
+            itemText();
+        }
+    }
+    function higherFunc2(){
+        if(hct > 0){
+            Higher();
+            hct -= 1;
+            higher = "10,000P (" + hct + "/5)"
+            varueText();
+            itemText();
+        }
+    }
+    function lowerFunc2(){
+        if(lct > 0){
+            Lower();
+            lct -= 1;
+            lower = "10,000P (" + lct + "/5)"
+            varueText();
+            itemText();
+        }
+    }
+    function itemText(){//なぜか反映されない。。。
+        document.getElementById("item1").textContent = "aaaaaaa";
+        document.getElementById("item2").textContent = fct;
+        document.getElementById("item3").textContent = hct;
+        document.getElementById("item4").textContent = lct;
+    }
+    function Skip(){
+        
+    }
+    function Flip(){
+        
+    }
+    function Higher(){
+        
+    }
+    function Lower(){
+        
+    }
+    function Up(){
+        
     }
 
 document.addEventListener('DOMContentLoaded', function () {

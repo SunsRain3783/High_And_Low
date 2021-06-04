@@ -50,38 +50,6 @@ img.up{
     bottom:1058px;
     left:10px;
 }
-.item1{
-    position:relative;
-    top:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item2{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item3{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item4{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
 .skipbtn{
     background-color:white;
     position:relative;
@@ -116,7 +84,26 @@ img.up{
     bottom:920px;
     left:100px;
 }
-
+.item1{
+    position:relative;
+    bottom:920px;
+    left:100px;
+}
+.item2{
+    position:relative;
+    bottom:520px;
+    left:100px;
+}
+.item3{
+    position:relative;
+    bottom:920px;
+    left:100px;
+}
+.item4{
+    position:relative;
+    bottom:920px;
+    left:100px;
+}
 .sample-box-1 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
     background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);

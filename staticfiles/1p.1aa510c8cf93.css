@@ -50,73 +50,34 @@ img.up{
     bottom:1058px;
     left:10px;
 }
-.item1{
-    position:relative;
-    top:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item2{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item3{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item4{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
 .skipbtn{
-    background-color:white;
     position:relative;
     width:150px;
     height:150px;
-    bottom:915px;
+    bottom:890px;
     left:100px;
 }
 .flipbtn{
     position:relative;
-    background-color:white;
     width:150px;
     height:150px;
-    bottom:915px;
+    bottom:890px;
     left:100px;
 }
 .higherbtn{
     position:relative;
-    background-color:white;
-    padding: 23px 25px;
     width:100px;
     height:100px;
-    bottom:920px;
-    left:100px;
+    bottom:800px;
+    left:140px;
 }
 .lowerbtn{
     position:relative;
-    background-color:white;
-    padding: 23px 25px;
     width:100px;
     height:100px;
-    bottom:920px;
-    left:100px;
+    bottom:800px;
+    left:140px;
 }
-
 .sample-box-1 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
     background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);

@@ -50,38 +50,6 @@ img.up{
     bottom:1058px;
     left:10px;
 }
-.item1{
-    position:relative;
-    top:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item2{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item3{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.item4{
-    position:relative;
-    bottom:930px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
 .skipbtn{
     background-color:white;
     position:relative;

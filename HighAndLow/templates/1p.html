@@ -691,14 +691,15 @@ var skip = "5,000P (0/10)";
 var flip = "20,000P (0/10)";
 var higher = "10,000P (0/5)";
 var lower = "10,000P (0/5)";
-var up = "  1,000,000P  ";
+var up = "  実績解除で獲得  ";
 var skipSrc=skipSrcs[0];
 var flipSrc=flipSrcs[0];
 var higherSrc=higherSrcs[0];
 var lowerSrc=lowerSrcs[0];
+var upRecord = 0;//実績解除で１にする
     function skipFunc(){
-        if(sct < 10 && nowpoint-5000 > 0){
-            nowpoint -= 5000;
+        if(sct < 10 && nowpoint-50 > 0){
+            nowpoint -= 50;
             pointText();
             sct += 1;
             skip = "5,000P (" + sct + "/10)"
@@ -708,8 +709,8 @@ var lowerSrc=lowerSrcs[0];
         }
     }
     function flipFunc(){
-        if(fct < 10 && nowpoint-20000 > 0){
-            nowpoint -= 20000;
+        if(fct < 10 && nowpoint-20 > 0){
+            nowpoint -= 20;
             pointText();
             fct += 1;
             flip = "20,000P (" + fct + "/10)"
@@ -719,8 +720,8 @@ var lowerSrc=lowerSrcs[0];
         }
     }
     function higherFunc(){
-        if(hct < 5 && nowpoint-10000 > 0){
-            nowpoint -= 10000;
+        if(hct < 5 && nowpoint-10 > 0){
+            nowpoint -= 10;
             pointText();
             hct += 1;
             higher = "10,000P (" + hct + "/5)"
@@ -730,8 +731,8 @@ var lowerSrc=lowerSrcs[0];
         }
     }
     function lowerFunc(){
-        if(lct < 5 && nowpoint-10000 > 0){
-            nowpoint -= 10000;
+        if(lct < 5 && nowpoint-10 > 0){
+            nowpoint -= 10;
             pointText();
             lct += 1;
             lower = "10,000P (" + lct + "/5)"
@@ -741,10 +742,8 @@ var lowerSrc=lowerSrcs[0];
         }
     }
     function upFunc(){
-        if(uct < 1 && nowpoint-1000000 > 0){
+        if(uct < 1 && upRecord === 1){
             Up();
-            nowpoint -= 1000000;
-            pointText();
             uct += 1;
             up = "購入済み"
             varueText();

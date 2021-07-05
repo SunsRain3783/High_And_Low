@@ -147,7 +147,7 @@ img.up{
     border-top: 4px solid #1c66fe;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
     margin: 2em 0;
-    padding: 40px 100px;
+    padding: 40px 200px;
     position:relative;
     bottom:135px;
 }
@@ -158,9 +158,9 @@ img.up{
     border-top: 4px solid #1c66fe;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
     margin: 2em 0;
-    padding: 40px 100px;
+    padding: 40px 200px;
     position:relative;
-    bottom:155px;
+    bottom:145px;
 }
 .sample-box-8 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -169,9 +169,9 @@ img.up{
     border-top: 4px solid #1c66fe;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
     margin: 2em 0;
-    padding: 40px 100px;
+    padding: 40px 200px;
     position:relative;
-    bottom:175px;
+    bottom:160px;
 }
 .sample-box-9 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -180,9 +180,9 @@ img.up{
     border-top: 4px solid #1c66fe;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
     margin: 2em 0;
-    padding: 40px 100px;
+    padding: 40px 200px;
     position:relative;
-    bottom:195px;
+    bottom:175px;
 }
 .sample-box-10 {
     background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
@@ -191,9 +191,9 @@ img.up{
     border-top: 4px solid #1c66fe;
     box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
     margin: 2em 0;
-    padding: 40px 100px;
+    padding: 40px 200px;
     position:relative;
-    bottom:215px;
+    bottom:190px;
 }
 .btn-gradient-3d-simple1 {
   position:relative;
@@ -312,7 +312,7 @@ img.up{
 
 .btn-real2 {
   position:relative;
-  bottom:985px;
+  bottom:500px;
   left:450px;
   display: inline-block;
   text-decoration: none;

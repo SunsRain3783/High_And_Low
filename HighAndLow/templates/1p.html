@@ -121,8 +121,8 @@
             <a href="#" class="btn-gradient-3d-simple4" id="lower" onclick="lowerFunc();"><font size="5px">BUTTON</font></a></div>
             <div><p align="left" class="sample-box-5" ><font size=5px>「報酬倍率３倍」　　　報酬倍率が常に３倍になる</font></p>
             <img src="{% static '倍率アップ.png' %}" class="up"/>
-            <a href="#" class="btn-gradient-3d-simple5" id="up" onclick="upFunc();"><font size="5px">BUTTON</font></a></div>
-            <div><a href="#" class="btn-real" onclick="backhome();">戻</a></div></tr>
+            <a href="#" class="btn-gradient-3d-simple5" id="up"><font size="5px">BUTTON</font></a></div>
+            <div><a href="#" class="btn-real1" onclick="backhome1();">戻</a></div></tr>
         </table>
     </div>
     
@@ -137,6 +137,21 @@
                 <input type="image" src="{% static 'ハイヤースイッチ.png' %}" alt="ハイヤー" class="higherbtn" id="item3" onclick="higherFunc2();">
                 <input type="image" src="{% static 'ロワースイッチ.png' %}" alt="ロワー" class="lowerbtn" id="item4" onclick="lowerFunc2();">
             </div>
+        </table>
+    </div>
+    
+    <!--実績-->
+    <div id="ac" >
+        <div><img src="{% static 'syoji.png' %}" class="syoji5" id="syoji5" /></div>
+        <p class="pt5" id="pt5"></p>
+        <table>
+            <tr>
+            <div><p align="left" class="sample-box-6" id="ac1"><font size=5px>実績１　　１５回連続で成功する（報酬：フリップグローブ×５）</font></p>
+            <div><p align="left" class="sample-box-7" id="ac2"><font size=5px>実績２　　２０回連続で成功する（報酬：フリップグローブの最大所持数を１０まで解放）</font></p>
+            <div><p align="left" class="sample-box-8" id="ac3"><font size=5px>実績３　　1,000,000ポイント達成（報酬：スキップシューズ×５）</font></p>
+            <div><p align="left" class="sample-box-9" id="ac4"><font size=5px>実績４　　10,000,000ポイント達成（報酬：アイテム「報酬倍率３倍」）</font></p>
+            <div><p align="left" class="sample-box-10" id="ac5"><font size=5px>実績５　　999,999,999ポイント達成（報酬：メッセージ）</font></p>
+            <div><a href="#" class="btn-real2" onclick="backhome2();">戻</a></div></tr>
         </table>
     </div>
     
@@ -233,6 +248,7 @@
         itemBtn();//アイテムボタンの非表示
         pointText();//ポイントを設置
         shopbtn();//ショップの非表示
+        acbtn();//実績の非表示
         itemSrc();//アイテムボタンの表示
         //modal_original('on');
     }
@@ -345,9 +361,12 @@
         setTimeout("lose();",650);
       }
     }
+var wincnt = 0;
 //成功したあとの処理
+var ac1Flag = 0;
+var ac2Flag = 0;
     function win(){
-        //WIN画像
+        wincnt += 1;
         changeDisplay2();//続けるやめるボタンがでてくる
         itemBtn();//消える
         tsuyosa1();//消える
@@ -355,10 +374,19 @@
         syojiget2();//消える
         syojiget3();//見える
         reward();
+        if(wincnt === 15 && ac1Flag === 0){
+            acFunc1();
+            ac1Flag = 1;
+            alert("実績解除　「１５回連続で成功する」")
+        }
+        if(wincnt === 20 && ac2Flag === 0){
+            acFunc2();
+            ac2Flag = 1;
+            alert("実績解除　「２０回連続で成功する」")
+        }
     }
 //失敗したあとの処理
     function lose(){
-        //LOSE画像
         setTimeout("lose2();", 1000);
         setTimeout("get1000P();",1001);
     }
@@ -383,6 +411,7 @@
     }
 //ベットするボタンを押したあとの処理
     function betsuru(){
+        wincnt = 0;
         changeDisplay5();
         changeDisplay4();
         syojiget1();
@@ -619,9 +648,28 @@ var upflag = 0;
         nowpoint -= 100;
         pointText();
     }
+var ac3Flag = 0;
+var ac4Flag = 0;
+var ac5Flag = 0;
     function getP(){
         nowpoint += getpoint;//ポイント獲得
         pointText();
+        if(nowpoint >= 1000000 && ac3Flag === 0){
+            acFunc3();
+            ac3Flag = 1;
+            alert("実績解除　1,000,000ポイント達成");
+        }
+        if(nowpoint >= 10000000 && ac4Flag === 0){
+            acFunc4();
+            ac4Flag = 1;
+            alert("実績解除　10,000,000ポイント達成");
+        }
+        if(nowpoint >= 999999999 && ac5Flag === 0){
+            acFunc5();
+            ac5Flag = 1;
+            alert("実績解除　999,999,999ポイント達成");
+            alert("ここまでプレイして頂きありがとうございます。楽しんで頂けて心から感謝しております。製作者より")
+        }
     }
     function loseP(){
         getpoint = 0;//ポイント０
@@ -635,6 +683,8 @@ var upflag = 0;
         document.getElementById("pt3").textContent = nowpoint;
         document.getElementById("gpt3").textContent = getpoint;
         document.getElementById("pt4").textContent = nowpoint;
+        document.getElementById("pt5").textContent = nowpoint;
+        
     }
 
 //メイン要素非表示
@@ -655,6 +705,16 @@ var upflag = 0;
         sh.style.display = "none";
       }
     }
+    
+//実績非表示
+    function acbtn(){
+      var ac = document.getElementById("ac");
+      if(ac.style.display == "none"){
+        ac.style.display = "block";
+      }else{
+        ac.style.display = "none";
+      }
+    }
 
 //ショップボタンの処理
     function shop(){
@@ -662,10 +722,20 @@ var upflag = 0;
         shopbtn();
         varueText();
     }
+    
+//実績ボタンの処理
+    function achieve(){
+        main();
+        acbtn();
+    }
 
 //戻るボタンの処理
-    function backhome(){
+    function backhome1(){
         shopbtn();
+        main();
+    }
+    function backhome2(){
+        acbtn();
         main();
     }
 //アイテムボタンの画像配列
@@ -688,7 +758,7 @@ var hct = 0;
 var lct = 0;
 var uct = 0;
 var skip = "5,000P (0/10)";
-var flip = "20,000P (0/10)";
+var flip = "20,000P (0/5)";
 var higher = "10,000P (0/5)";
 var lower = "10,000P (0/5)";
 var up = "  実績解除で獲得  ";
@@ -696,10 +766,9 @@ var skipSrc=skipSrcs[0];
 var flipSrc=flipSrcs[0];
 var higherSrc=higherSrcs[0];
 var lowerSrc=lowerSrcs[0];
-var upRecord = 0;//実績解除で１にする
     function skipFunc(){
-        if(sct < 10 && nowpoint-50 > 0){
-            nowpoint -= 50;
+        if(sct < 10 && nowpoint-5000 > 0){
+            nowpoint -= 5000;
             pointText();
             sct += 1;
             skip = "5,000P (" + sct + "/10)"
@@ -708,20 +777,52 @@ var upRecord = 0;//実績解除で１にする
             itemSrc();
         }
     }
+    function skipFunc3(){
+        if(sct < 10){
+            sct += 1;
+            skip = "5,000P (" + sct + "/10)"
+            varueText();
+            skipSrc=skipSrcs[sct];
+            itemSrc();
+        }
+    }
     function flipFunc(){
-        if(fct < 10 && nowpoint-20 > 0){
-            nowpoint -= 20;
-            pointText();
+        if(flipFlag === 0){
+            if(fct < 5 && nowpoint-20000 > 0){
+                nowpoint -= 20000;
+                pointText();
+                fct += 1;
+                flip = "20,000P (" + fct + "/5)"
+                varueText();
+                flipSrc=flipSrcs[fct];
+                itemSrc();
+            }
+        }
+        else{
+            if(fct < 10 && nowpoint-20000 > 0){
+                nowpoint -= 20000;
+                pointText();
+                fct += 1;
+                flip = "20,000P (" + fct + "/10)"
+                varueText();
+                flipSrc=flipSrcs[fct];
+                itemSrc();
+            }
+        }
+    }
+    function flipFunc3(){
+        if(fct < 5){
             fct += 1;
-            flip = "20,000P (" + fct + "/10)"
+            flip = "20,000P (" + fct + "/5)"
             varueText();
             flipSrc=flipSrcs[fct];
             itemSrc();
         }
     }
+    
     function higherFunc(){
-        if(hct < 5 && nowpoint-10 > 0){
-            nowpoint -= 10;
+        if(hct < 5 && nowpoint-10000 > 0){
+            nowpoint -= 10000;
             pointText();
             hct += 1;
             higher = "10,000P (" + hct + "/5)"
@@ -731,8 +832,8 @@ var upRecord = 0;//実績解除で１にする
         }
     }
     function lowerFunc(){
-        if(lct < 5 && nowpoint-10 > 0){
-            nowpoint -= 10;
+        if(lct < 5 && nowpoint-10000 > 0){
+            nowpoint -= 10000;
             pointText();
             lct += 1;
             lower = "10,000P (" + lct + "/5)"
@@ -742,10 +843,10 @@ var upRecord = 0;//実績解除で１にする
         }
     }
     function upFunc(){
-        if(uct < 1 && upRecord === 1){
+        if(uct < 1){
             Up();
             uct += 1;
-            up = "購入済み"
+            up = "獲得済み"
             varueText();
         }
     }
@@ -769,13 +870,25 @@ var upRecord = 0;//実績解除で１にする
         }
     }
     function flipFunc2(){
-        if(fct > 0){
-            Flip();
-            fct -= 1;
-            flip = "20,000P (" + fct + "/10)"
-            varueText();
-            flipSrc=flipSrcs[fct];
-            itemSrc();
+        if(flipFlag === 0){
+            if(fct > 0){
+                Flip();
+                fct -= 1;
+                flip = "20,000P (" + fct + "/5)"
+                varueText();
+                flipSrc=flipSrcs[fct];
+                itemSrc();
+            }
+        }
+        else{
+            if(fct > 0){
+                Flip();
+                fct -= 1;
+                flip = "20,000P (" + fct + "/10)"
+                varueText();
+                flipSrc=flipSrcs[fct];
+                itemSrc();
+            }
         }
     }
     function higherFunc2(){
@@ -825,6 +938,34 @@ var upRecord = 0;//実績解除で１にする
     }
     function Up(){
         upflag = 1;
+    }
+    
+//実績の処理　　　　　　　　　　　　　　
+    function acFunc1(){
+        flipFunc3();
+        flipFunc3();
+        flipFunc3();
+        flipFunc3();
+        flipFunc3();
+    }
+var flipFlag = 0;
+    function acFunc2(){
+        flip = "20,000P (" + fct + "/10)"
+        varueText();
+        flipFlag = 1;
+    }
+    function acFunc3(){
+        skipFunc3();
+        skipFunc3();
+        skipFunc3();
+        skipFunc3();
+        skipFunc3();
+    }
+    function acFunc4(){
+        upFunc();
+    }
+    function acFunc5(){
+        
     }
 
 document.addEventListener('DOMContentLoaded', function () {

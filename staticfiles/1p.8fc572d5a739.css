@@ -140,61 +140,6 @@ img.up{
     position:relative;
     bottom:913px;
 }
-.sample-box-6 {
-    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
-    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
-    border: 1px solid #ccc;
-    border-top: 4px solid #1c66fe;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
-    margin: 2em 0;
-    padding: 40px 100px;
-    position:relative;
-    bottom:135px;
-}
-.sample-box-7 {
-    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
-    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
-    border: 1px solid #ccc;
-    border-top: 4px solid #1c66fe;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
-    margin: 2em 0;
-    padding: 40px 100px;
-    position:relative;
-    bottom:155px;
-}
-.sample-box-8 {
-    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
-    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
-    border: 1px solid #ccc;
-    border-top: 4px solid #1c66fe;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
-    margin: 2em 0;
-    padding: 40px 100px;
-    position:relative;
-    bottom:175px;
-}
-.sample-box-9 {
-    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
-    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
-    border: 1px solid #ccc;
-    border-top: 4px solid #1c66fe;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
-    margin: 2em 0;
-    padding: 40px 100px;
-    position:relative;
-    bottom:195px;
-}
-.sample-box-10 {
-    background: -webkit-linear-gradient(top, #fff 0%, #f0f0f0 100%);
-    background: linear-gradient(to bottom, #fff 0%, #f0f0f0 100%);
-    border: 1px solid #ccc;
-    border-top: 4px solid #1c66fe;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 1) inset;
-    margin: 2em 0;
-    padding: 40px 100px;
-    position:relative;
-    bottom:215px;
-}
 .btn-gradient-3d-simple1 {
   position:relative;
   bottom:366px;
@@ -312,7 +257,7 @@ img.up{
 
 .btn-real2 {
   position:relative;
-  bottom:985px;
+  bottom:1000px;
   left:450px;
   display: inline-block;
   text-decoration: none;
@@ -359,12 +304,6 @@ img.up{
     height: 100px;
 }
 .syoji4{
-    position:relative;
-    top:20px;
-    width: 400px;
-    height: 80px;
-}
-.syoji5{
     position:relative;
     top:20px;
     width: 400px;
@@ -439,14 +378,6 @@ img.up{
     width:290px;
 }
 .pt4{
-    position:relative;
-    bottom:90px;
-    left:0px;
-    font-size:45px;
-    text-align:right;
-    width:290px;
-}
-.pt5{
     position:relative;
     bottom:90px;
     left:0px;

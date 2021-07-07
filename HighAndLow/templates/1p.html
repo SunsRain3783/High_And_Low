@@ -148,9 +148,9 @@
             <tr>
             <div><p align="left" class="sample-box-6" id="ac1"><font size=5px>実績１　　１５回連続で成功する（報酬：フリップグローブ×５）</font></p>
             <div><p align="left" class="sample-box-7" id="ac2"><font size=5px>実績２　　２０回連続で成功する（報酬：フリップグローブの最大所持数を１０まで解放）</font></p>
-            <div><p align="left" class="sample-box-8" id="ac3"><font size=5px>実績３　　1,000,000ポイント達成（報酬：スキップシューズ×５）</font></p>
-            <div><p align="left" class="sample-box-9" id="ac4"><font size=5px>実績４　　10,000,000ポイント達成（報酬：アイテム「報酬倍率３倍」）</font></p>
-            <div><p align="left" class="sample-box-10" id="ac5"><font size=5px>実績５　　999,999,999ポイント達成（報酬：メッセージ）</font></p>
+            <div><p align="left" class="sample-box-8" id="ac3"><font size=5px>実績３　　10,000,000ポイント達成（報酬：スキップシューズ×５）</font></p>
+            <div><p align="left" class="sample-box-9" id="ac4"><font size=5px>実績４　　999,999,999ポイント達成（報酬：アイテム「報酬倍率３倍」）</font></p>
+            <div><p align="left" class="sample-box-10" id="ac5"><font size=5px>実績５　　999,999,999,999ポイント達成（報酬：メッセージ）</font></p>
             <div><a href="#" class="btn-real2" onclick="backhome2();">戻</a></div></tr>
         </table>
     </div>
@@ -654,20 +654,20 @@ var ac5Flag = 0;
     function getP(){
         nowpoint += getpoint;//ポイント獲得
         pointText();
-        if(nowpoint >= 1000000 && ac3Flag === 0){
+        if(nowpoint >= 10000000 && ac3Flag === 0){
             acFunc3();
             ac3Flag = 1;
-            alert("実績解除　1,000,000ポイント達成");
-        }
-        if(nowpoint >= 10000000 && ac4Flag === 0){
-            acFunc4();
-            ac4Flag = 1;
             alert("実績解除　10,000,000ポイント達成");
         }
-        if(nowpoint >= 999999999 && ac5Flag === 0){
+        if(nowpoint >= 999999999 && ac4Flag === 0){
+            acFunc4();
+            ac4Flag = 1;
+            alert("実績解除　999,999,999ポイント達成");
+        }
+        if(nowpoint >= 999999999999 && ac5Flag === 0){
             acFunc5();
             ac5Flag = 1;
-            alert("実績解除　999,999,999ポイント達成");
+            alert("実績解除　999,999,999,999ポイント達成");
             alert("ここまでプレイして頂きありがとうございます。楽しんで頂けて心から感謝しております。製作者より")
         }
     }

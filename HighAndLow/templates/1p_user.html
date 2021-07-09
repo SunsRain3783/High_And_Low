@@ -1,17 +1,18 @@
+<!--記憶したい変数：nowpoint,flipFlag,sct,fct,hct,lct,uct,ac1Flag~ac5Flag,skip,flip,higher,lower,up(テキスト),-->
 {% load static %}
 <!doctype HTML>
 <html>
     <head>
-        <link rel="stylesheet" href="{% static '1p.css' %}">
+        <link rel="stylesheet" href="{% static '1p_user.css' %}">
     </head>
     <body onload="firstFunc();"><!--ここから中身-->
     <div class="wrap">
     <!--ヘッダー-->
     <div class="header">
         <a href="/top" class="btn-flat-vertical-border">トップページ</a>
-        <a href="/login" class="btn-flat-vertical-border3" style="left:20%;">ログイン</a>
+        <a href="/1p" class="btn-flat-vertical-border3" style="left:20%;">ログアウト</a>
         <img src="{% static 'aicon.png' %}" class="aicon"/>
-        <b class="name">　ゲスト　</b><!--名前は5文字以内？-->
+        <b class="name">　{{ user }}　</b>
         <a href="/how" class="btn-flat-vertical-border2" style="left:35%;">遊び方</a>
     </div>
     <!--画像-->
@@ -668,7 +669,7 @@ var ac5Flag = 0;
             acFunc5();
             ac5Flag = 1;
             alert("実績解除　999,999,999,999ポイント達成");
-            alert("ここまでプレイして頂きありがとうございます。楽しんで頂けて心から感謝しております。製作者より")
+            alert("{{ user }}さん。ここまでプレイして頂きありがとうございます。楽しんで頂けて心から感謝しております。製作者より")
         }
     }
     function loseP(){

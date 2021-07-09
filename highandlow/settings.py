@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'HighAndLow',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'HighAndLow',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +122,14 @@ USE_TZ = True
 STATIC_URL = '/static/'#画像とか静的ファイルのurlの名前
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')#staticファイルが集められる場所
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#ログイン関係
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_URL = "/top/" #ログインしてないときに表示するページ
+LOGIN_REDIRECT_URL = "/1p_user/"
+LOGOUT_REDIRECT_URL = "/1p/" #ログアウトしたとき
+
+AUTH_USER_MODEL = 'HighAndLow.User'
+
+
